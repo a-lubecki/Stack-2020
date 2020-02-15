@@ -7,10 +7,10 @@ public class BlockBehavior : MonoBehaviour {
 
 
     ///the max position of the moving animation
-    public static readonly float MAX_AMPLITUDE = 7;
+    public static readonly float MAX_AMPLITUDE = 6;
 
-    public static readonly float MIN_SPEED = 10;
-    public static readonly float MAX_SPEED = 17;
+    public static readonly float MIN_SPEED = 11;
+    public static readonly float MAX_SPEED = 20;
 
     ///the number of levels before incrementing the speed
     public static readonly int LAST_LEVEL_FOR_MIN_SPEED = 10;
@@ -213,10 +213,10 @@ public class BlockBehavior : MonoBehaviour {
 
         if (mustMoveOnXAxis) {
             newCutSize.x = otherSize.x - newSize.x;
-            newCutPos.x = otherPos.x - shift - multiplier * 0.5f * newSize.x - multiplier * 1;
+            newCutPos.x = otherPos.x - shift - multiplier * 0.5f * newSize.x;
         } else {
             newCutSize.z = otherSize.z - newSize.z;
-            newCutPos.z = otherPos.z - shift - multiplier * 0.5f * newSize.z - multiplier * 1;
+            newCutPos.z = otherPos.z - shift - multiplier * 0.5f * newSize.z;
         }
 
         goCutPart.transform.localPosition = newCutPos;

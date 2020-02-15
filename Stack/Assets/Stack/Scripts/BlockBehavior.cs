@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 
@@ -8,8 +7,10 @@ public class BlockBehavior : MonoBehaviour {
 
     ///the max position of the moving animation
     public static readonly float MAX_AMPLITUDE = 7;
+
     public static readonly float MIN_SPEED = 10;
     public static readonly float MAX_SPEED = 17;
+
     ///the number of levels before incrementing the speed
     public static readonly int LAST_LEVEL_FOR_MIN_SPEED = 10;
     ///the number of levels when the speed must stop incrementing
@@ -33,7 +34,9 @@ public class BlockBehavior : MonoBehaviour {
         Move();
     }
 
-    public void Init(int level, bool mustMoveOnXAxis) {
+    public void Init(int level, bool mustMoveOnXAxis, Vector2 initialHorizontalPos, Vector2 initialHorizontalSize) {
+
+        GetComponent<Rigidbody>().isKinematic = true;
 
         this.mustMoveOnXAxis = mustMoveOnXAxis;
         mustMoveOnPositiveDirection = false;
@@ -42,8 +45,10 @@ public class BlockBehavior : MonoBehaviour {
         speed = CalculateNewSpeed(level);
 
         //update pos, preparing for moving
-        transform.localPosition = new Vector3(0, level, 0);
-        UpdatePosition(MAX_AMPLITUDE);
+        transform.localPosition = new Vector3(initialHorizontalPos.x, level, initialHorizontalPos.y);
+        UpdateMovingPosition(MAX_AMPLITUDE);
+
+        transform.localScale = new Vector3(initialHorizontalSize.x, 1, initialHorizontalSize.y);
     }
 
     public void StartMoving() {
@@ -70,7 +75,7 @@ public class BlockBehavior : MonoBehaviour {
             advance = -advance;
         }
 
-        UpdatePosition(axisPos + advance);
+        UpdateMovingPosition(axisPos + advance);
 
         //when the block has reached the max amplitude, inverse the direction
         axisPos = GetAxisPosition();
@@ -79,16 +84,7 @@ public class BlockBehavior : MonoBehaviour {
         }
     }
 
-    private float GetAxisPosition() {
-
-        if (mustMoveOnXAxis) {
-            return transform.localPosition.x;
-        }
-
-        return transform.localPosition.z;
-    }
-
-    private void UpdatePosition(float axisPos) {
+    public void UpdateMovingPosition(float axisPos) {
 
         //capping of the pos
         if (axisPos < -MAX_AMPLITUDE) {
@@ -111,7 +107,91 @@ public class BlockBehavior : MonoBehaviour {
 
     public void Fall() {
 
-        ///TODO
+        GetComponent<Rigidbody>().isKinematic = false;
+    }
+
+    private float GetAxisPosition() {
+
+        if (mustMoveOnXAxis) {
+            return transform.localPosition.x;
+        }
+
+        return transform.localPosition.z;
+    }
+
+    private float GetAxisSize() {
+
+        if (mustMoveOnXAxis) {
+            return transform.localScale.x;
+        }
+
+        return transform.localScale.z;
+    }
+
+    private float GetShiftFromOtherBlock(BlockBehavior otherBlock) {
+
+        if (mustMoveOnXAxis) {
+            return otherBlock.transform.localPosition.x - transform.localPosition.x;
+        }
+
+        return otherBlock.transform.localPosition.z - transform.localPosition.z;
+    }
+
+    private float GetDistanceFromOtherBlock(BlockBehavior otherBlock) {
+
+        return Mathf.Abs(GetShiftFromOtherBlock(otherBlock));
+    }
+
+    public bool IsStackedOutsidePreviousBlock(BlockBehavior otherBlock) {
+
+        if (otherBlock == null) {
+            throw new ArgumentException();
+        }
+
+        //distance betwen the 2 blocks must be greater than the size of the block
+        return GetDistanceFromOtherBlock(otherBlock) > GetAxisSize();
+    }
+
+    public bool HasExactStackPosition(BlockBehavior otherBlock, float threshold) {
+
+        if (otherBlock == null) {
+            throw new ArgumentException();
+        }
+
+        //distance betwen the 2 blocks must be 0 or less than the threshold
+        return GetDistanceFromOtherBlock(otherBlock) <= threshold;
+    }
+
+    ///resize the current block then generate a new additional block for the cut part
+    public BlockBehavior SplitWithOtherBlock(BlockBehavior otherBlock) {
+
+        if (otherBlock == null) {
+            throw new ArgumentException();
+        }
+
+        var otherPos = otherBlock.transform.localPosition;
+        var otherSize = otherBlock.transform.localScale;
+
+        var shift = GetShiftFromOtherBlock(otherBlock);
+
+        var newPos = transform.localPosition;
+        var newSize = transform.localScale;
+
+        if (mustMoveOnXAxis) {
+
+            newPos.x = otherPos.x - 0.5f * shift;
+            newSize.x -= Math.Abs(shift);
+
+        } else {
+
+            newPos.z = otherPos.z - 0.5f * shift;
+            newSize.z -= Math.Abs(shift);
+        }
+
+        transform.localPosition = newPos;
+        transform.localScale = newSize;
+
+        return null;
     }
 
     private static float CalculateNewSpeed(int level) {

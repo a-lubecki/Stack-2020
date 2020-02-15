@@ -6,12 +6,17 @@ using Lean.Pool;
 public class TowerBehavior : MonoBehaviour {
 
 
+    ///the threshold that determine when a block is well stacked over the previous even if it's not perfectly stacked
+    public static readonly float THRESHOLD_EXACT_BLOCK_STACKING = 0.3f;
+
+
     [SerializeField] private int level;
     [SerializeField] private BlockBehavior baseBlockBehavior;
     [SerializeField] private Transform trBlocks;
     [SerializeField] private GameObject prefabBlock;
-    [SerializeField] private BlockBehavior topBlockBehavior;
 
+    private BlockBehavior previousBlockBehavior;
+    private BlockBehavior topBlockBehavior;
 
     public int Level {
         get {
@@ -19,8 +24,14 @@ public class TowerBehavior : MonoBehaviour {
         }
     }
 
+
+    void Start() {
+
+        ResetTower();
+    }
+
     public bool HasTopBlock() {
-        return topBlockBehavior != null;
+        return topBlockBehavior != null && topBlockBehavior != baseBlockBehavior;
     }
 
     public void IncrementLevel() {
@@ -31,28 +42,30 @@ public class TowerBehavior : MonoBehaviour {
 
         level = 0;
 
-        //add all generted blocks to pool
-        foreach (Transform tr in trBlocks) {
-            LeanPool.Despawn(tr, 0);
+        //cast all generated blocks to pool
+        while (trBlocks.childCount > 0) {
+            LeanPool.Despawn(trBlocks.GetChild(0));
         }
+
+        previousBlockBehavior = null;
+        topBlockBehavior = baseBlockBehavior;
     }
 
     public void GenerateNextBlock() {
+
+        //replace the previous block by the current one
+        previousBlockBehavior = topBlockBehavior;
 
         //add a new block to the stack
         var goBlock = LeanPool.Spawn(prefabBlock, trBlocks);
         topBlockBehavior = goBlock.GetComponent<BlockBehavior>();
 
-        var previousBlockBehavior = FindPreviousBlock();
+        //swap the moving axis of the new block and move
+        var trPreviousBlock = previousBlockBehavior.transform;
+        var previousPos = new Vector2(trPreviousBlock.localPosition.x, trPreviousBlock.localPosition.z);
+        var previousSize = new Vector2(trPreviousBlock.localScale.x, trPreviousBlock.localScale.z);
 
-        //swap the moving axis
-        var mustMoveOnXAxis = true;
-        if (previousBlockBehavior != null) {
-            mustMoveOnXAxis = !previousBlockBehavior.MustMoveOnXAxis;
-        }
-
-        //init and move
-        topBlockBehavior.Init(level, mustMoveOnXAxis);
+        topBlockBehavior.Init(level, !previousBlockBehavior.MustMoveOnXAxis, previousPos, previousSize);
         topBlockBehavior.StartMoving();
     }
 
@@ -64,50 +77,25 @@ public class TowerBehavior : MonoBehaviour {
 
         topBlockBehavior.StopMoving();
 
-        if (IsStackedOutsidePreviousBlock()) {
+        if (topBlockBehavior.IsStackedOutsidePreviousBlock(previousBlockBehavior)) {
             //not on the tower
             topBlockBehavior.Fall();
             return false;
         }
 
-        if (HasExactStackPosition()) {
-            //perfect
-            return true;
+        if (topBlockBehavior.HasExactStackPosition(previousBlockBehavior, THRESHOLD_EXACT_BLOCK_STACKING)) {
+
+            //perfect or almost perfect
+            topBlockBehavior.UpdateMovingPosition(0);
+
+        } else {
+
+            //on the tower but not fitting perfectly, ut then let the new cut block falling down
+            var cutBlock = topBlockBehavior.SplitWithOtherBlock(previousBlockBehavior);
+            ///cutBlock.Fall();
         }
 
-        //on the tower
-        var blockBehavior = GenerateCutBlock();
-        blockBehavior.Fall();
-
-        return true;///TODO TEST
-    }
-
-    private bool IsStackedOutsidePreviousBlock() {
-
-        ///TODO
-        return false;
-    }
-
-    private bool HasExactStackPosition() {
-
-        ///TODO
         return true;
-    }
-
-    private BlockBehavior GenerateCutBlock() {
-
-        ///TODO
-        throw new NotSupportedException("TODO");
-    }
-
-    private BlockBehavior FindPreviousBlock() {
-
-        if (trBlocks.childCount <= 1) {
-            //tower must have at least 2 blocks to have a previous block
-            return baseBlockBehavior;
-        }
-
-        return trBlocks.GetChild(topBlockBehavior.transform.GetSiblingIndex() - 1).GetComponent<BlockBehavior>();
     }
 
 }

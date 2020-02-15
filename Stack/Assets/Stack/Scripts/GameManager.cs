@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour {
 
         isGameOver = false;
 
+        towerBehavior.ResetTower();
+
         ///TODO cam
     }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Lean.Pool;
 
 
 public class BlockBehavior : MonoBehaviour {
@@ -34,9 +35,14 @@ public class BlockBehavior : MonoBehaviour {
         Move();
     }
 
+    public void SetAsKinematic(bool isKinematic) {
+
+        GetComponent<Rigidbody>().isKinematic = isKinematic;
+    }
+
     public void Init(int level, bool mustMoveOnXAxis, Vector2 initialHorizontalPos, Vector2 initialHorizontalSize) {
 
-        GetComponent<Rigidbody>().isKinematic = true;
+        SetAsKinematic(true);
 
         this.mustMoveOnXAxis = mustMoveOnXAxis;
         mustMoveOnPositiveDirection = false;
@@ -105,11 +111,6 @@ public class BlockBehavior : MonoBehaviour {
         transform.localPosition = pos;
     }
 
-    public void Fall() {
-
-        GetComponent<Rigidbody>().isKinematic = false;
-    }
-
     private float GetAxisPosition() {
 
         if (mustMoveOnXAxis) {
@@ -162,8 +163,23 @@ public class BlockBehavior : MonoBehaviour {
         return GetDistanceFromOtherBlock(otherBlock) <= threshold;
     }
 
+    ///update position to be exactly on the other block
+    public void MoveOverOtherBlock(BlockBehavior otherBlock) {
+
+        var otherPos = otherBlock.transform.localPosition;
+        var newPos = transform.localPosition;
+
+        if (mustMoveOnXAxis) {
+            newPos.x = otherPos.x;
+        } else {
+            newPos.z = otherPos.z;
+        }
+
+        transform.localPosition = newPos;
+    }
+
     ///resize the current block then generate a new additional block for the cut part
-    public BlockBehavior SplitWithOtherBlock(BlockBehavior otherBlock) {
+    public void SplitWithOtherBlock(BlockBehavior otherBlock, GameObject goCutPart) {
 
         if (otherBlock == null) {
             throw new ArgumentException();
@@ -172,18 +188,17 @@ public class BlockBehavior : MonoBehaviour {
         var otherPos = otherBlock.transform.localPosition;
         var otherSize = otherBlock.transform.localScale;
 
+        //get the shift between this block and the other, the shift is the non-absolute value of the distance
         var shift = GetShiftFromOtherBlock(otherBlock);
 
+        //resize the current block
         var newPos = transform.localPosition;
         var newSize = transform.localScale;
 
         if (mustMoveOnXAxis) {
-
             newPos.x = otherPos.x - 0.5f * shift;
             newSize.x -= Math.Abs(shift);
-
         } else {
-
             newPos.z = otherPos.z - 0.5f * shift;
             newSize.z -= Math.Abs(shift);
         }
@@ -191,7 +206,21 @@ public class BlockBehavior : MonoBehaviour {
         transform.localPosition = newPos;
         transform.localScale = newSize;
 
-        return null;
+        //resize and move the cut part
+        var newCutPos = goCutPart.transform.localPosition;
+        var newCutSize = goCutPart.transform.localScale;
+        var multiplier = shift > 0 ? 1 : -1;
+
+        if (mustMoveOnXAxis) {
+            newCutSize.x = otherSize.x - newSize.x;
+            newCutPos.x = otherPos.x - shift - multiplier * 0.5f * newSize.x - multiplier * 1;
+        } else {
+            newCutSize.z = otherSize.z - newSize.z;
+            newCutPos.z = otherPos.z - shift - multiplier * 0.5f * newSize.z - multiplier * 1;
+        }
+
+        goCutPart.transform.localPosition = newCutPos;
+        goCutPart.transform.localScale = newCutSize;
     }
 
     private static float CalculateNewSpeed(int level) {

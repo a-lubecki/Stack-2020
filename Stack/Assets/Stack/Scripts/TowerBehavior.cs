@@ -13,7 +13,7 @@ public class TowerBehavior : MonoBehaviour {
     [SerializeField] private int level;
     [SerializeField] private BlockBehavior baseBlockBehavior;
     [SerializeField] private Transform trBlocks;
-    [SerializeField] private GameObject prefabBlock;
+    [SerializeField] private LeanGameObjectPool poolBlocks;
 
     private BlockBehavior previousBlockBehavior;
     private BlockBehavior topBlockBehavior;
@@ -43,9 +43,7 @@ public class TowerBehavior : MonoBehaviour {
         level = 0;
 
         //cast all generated blocks to pool
-        while (trBlocks.childCount > 0) {
-            LeanPool.Despawn(trBlocks.GetChild(0));
-        }
+        poolBlocks.DespawnAll();
 
         previousBlockBehavior = null;
         topBlockBehavior = baseBlockBehavior;
@@ -57,7 +55,7 @@ public class TowerBehavior : MonoBehaviour {
         previousBlockBehavior = topBlockBehavior;
 
         //add a new block to the stack
-        var goBlock = LeanPool.Spawn(prefabBlock, trBlocks);
+        var goBlock = poolBlocks.Spawn(Vector3.zero, Quaternion.identity, trBlocks, false);
         topBlockBehavior = goBlock.GetComponent<BlockBehavior>();
 
         //swap the moving axis of the new block and move
@@ -79,35 +77,30 @@ public class TowerBehavior : MonoBehaviour {
 
         if (topBlockBehavior.IsStackedOutsidePreviousBlock(previousBlockBehavior)) {
             //not on the tower
-            topBlockBehavior.Fall();
+            topBlockBehavior.SetAsKinematic(false);
             return false;
         }
 
         if (topBlockBehavior.HasExactStackPosition(previousBlockBehavior, THRESHOLD_EXACT_BLOCK_STACKING)) {
 
             //perfect or almost perfect
-            topBlockBehavior.UpdateMovingPosition(0);
+            topBlockBehavior.MoveOverOtherBlock(previousBlockBehavior);
 
         } else {
 
-            //on the tower but not fitting perfectly, ut then let the new cut block falling down
-            var cutBlock = topBlockBehavior.SplitWithOtherBlock(previousBlockBehavior);
-            ///cutBlock.Fall();
+            //generate the rest of the cut block before resizing the current block to keep the same position and scale
+            var goCutBlock = poolBlocks.Spawn(Vector3.zero, Quaternion.identity, trBlocks, false);
+            //set scale before position to make the spawn work correctly
+            goCutBlock.transform.localScale = topBlockBehavior.transform.localScale;
+            goCutBlock.transform.localPosition = topBlockBehavior.transform.localPosition;
+
+            //on the tower but not fitting perfectly, cut then let the new cut block falling down
+            topBlockBehavior.SplitWithOtherBlock(previousBlockBehavior, goCutBlock);
+
+            goCutBlock.GetComponent<BlockBehavior>().SetAsKinematic(false);
         }
 
         return true;
     }
 
 }
-
-/*
-public interface ITowerBehaviorListener {
-
-    void OnTowerReset();
-
-    void OnStackGeneration();
-
-    void OnStackCurrent();
-
-}
-*/

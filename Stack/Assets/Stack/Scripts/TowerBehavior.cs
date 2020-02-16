@@ -1,7 +1,6 @@
 ﻿using System;
 using UnityEngine;
 using Lean.Pool;
-using DG.Tweening;
 
 
 public class TowerBehavior : MonoBehaviour {
@@ -48,9 +47,6 @@ public class TowerBehavior : MonoBehaviour {
 
         previousBlockBehavior = null;
         topBlockBehavior = baseBlockBehavior;
-
-        //make the camera follow the new block
-        Camera.main.transform.DOLocalMoveY(0, 0.2f);
     }
 
     public void GenerateNextBlock() {
@@ -69,9 +65,6 @@ public class TowerBehavior : MonoBehaviour {
 
         topBlockBehavior.Init(level, !previousBlockBehavior.MustMoveOnXAxis, previousPos, previousSize);
         topBlockBehavior.StartMoving();
-
-        //make the camera follow the new block
-        Camera.main.transform.DOLocalMoveY(level, 0.5f);
     }
 
     public bool StackCurrentBlock() {

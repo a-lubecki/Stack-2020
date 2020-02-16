@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 
 public class GameManager : MonoBehaviour {
@@ -7,14 +8,21 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private bool isPlaying;
     [SerializeField] private bool isGameOver;
     [SerializeField] private TowerBehavior towerBehavior;
+    [SerializeField] private UIDisplayBehavior uiDisplayBehavior;
 
+
+    void Start() {
+
+        uiDisplayBehavior.DisplayTitle();
+    }
 
     void Update() {
 
+        //handle click or touch depending of the game status
         if (Input.GetMouseButtonDown(0)) {
 
             if (isPlaying) {
-                StackCurrentBlock();
+                TryStackCurrentBlock();
             } else if (isGameOver) {
                 ResetTower();
             } else {
@@ -27,23 +35,7 @@ public class GameManager : MonoBehaviour {
 
         isPlaying = true;
 
-        towerBehavior.GenerateNextBlock();
-    }
-
-    private void StackCurrentBlock() {
-
-        var hasStacked = towerBehavior.StackCurrentBlock();
-
-        if (hasStacked) {
-
-            towerBehavior.IncrementLevel();
-            towerBehavior.GenerateNextBlock();
-
-            ///TODO cam
-
-        } else {
-            StopPlaying();
-        }
+        GenerateNextBlock();
     }
 
     private void StopPlaying() {
@@ -51,7 +43,7 @@ public class GameManager : MonoBehaviour {
         isPlaying = false;
         isGameOver = true;
 
-        ///TODO cam
+        uiDisplayBehavior.DisplayRetry();
     }
 
     private void ResetTower() {
@@ -60,7 +52,34 @@ public class GameManager : MonoBehaviour {
 
         towerBehavior.ResetTower();
 
-        ///TODO cam
+        //make the camera follow the new block
+        Camera.main.transform.DOLocalMoveY(0, 0.2f);
+
+        uiDisplayBehavior.DisplayTitle();
+    }
+
+    private void GenerateNextBlock() {
+
+        towerBehavior.GenerateNextBlock();
+
+        //make the camera follow the new block
+        Camera.main.transform.DOLocalMoveY(towerBehavior.Level, 0.5f);
+
+        uiDisplayBehavior.DisplayScore(towerBehavior.Level);
+    }
+
+    private void TryStackCurrentBlock() {
+
+        var hasStacked = towerBehavior.StackCurrentBlock();
+
+        if (hasStacked) {
+
+            towerBehavior.IncrementLevel();
+            GenerateNextBlock();
+
+        } else {
+            StopPlaying();
+        }
     }
 
 }

@@ -30,6 +30,15 @@ public class BlockBehavior : MonoBehaviour {
         }
     }
 
+    public Color Color {
+        get {
+            return GetComponent<MeshRenderer>().material.color;
+        }
+        set {
+            GetComponent<MeshRenderer>().material.color = value;
+        }
+    }
+
     void Update() {
 
         Move();

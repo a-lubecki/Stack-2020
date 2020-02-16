@@ -24,6 +24,8 @@ public class TowerBehavior : MonoBehaviour {
         }
     }
 
+    private ColorIncrementManager colorIncrementManager = new ColorIncrementManager();
+
 
     void Start() {
 
@@ -47,6 +49,8 @@ public class TowerBehavior : MonoBehaviour {
 
         previousBlockBehavior = null;
         topBlockBehavior = baseBlockBehavior;
+
+        baseBlockBehavior.Color = colorIncrementManager.NewColorFromOther(baseBlockBehavior.Color, UnityEngine.Random.Range(0.2f, 0.5f));
     }
 
     public void GenerateNextBlock() {
@@ -64,6 +68,7 @@ public class TowerBehavior : MonoBehaviour {
         var previousSize = new Vector2(trPreviousBlock.localScale.x, trPreviousBlock.localScale.z);
 
         topBlockBehavior.Init(level, !previousBlockBehavior.MustMoveOnXAxis, previousPos, previousSize);
+        topBlockBehavior.Color = colorIncrementManager.NewColorFromOther(previousBlockBehavior.Color, 0.03f);
         topBlockBehavior.StartMoving();
     }
 
@@ -97,7 +102,9 @@ public class TowerBehavior : MonoBehaviour {
             //on the tower but not fitting perfectly, cut then let the new cut block falling down
             topBlockBehavior.SplitWithOtherBlock(previousBlockBehavior, goCutBlock);
 
-            goCutBlock.GetComponent<BlockBehavior>().SetAsKinematic(false);
+            var cutBlockBehavior = goCutBlock.GetComponent<BlockBehavior>();
+            cutBlockBehavior.Color = topBlockBehavior.Color;
+            cutBlockBehavior.SetAsKinematic(false);
         }
 
         return true;

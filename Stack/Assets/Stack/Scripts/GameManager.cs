@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using DG.Tweening;
 
 
 public class GameManager : MonoBehaviour {
@@ -8,6 +7,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private bool isPlaying;
     [SerializeField] private bool isGameOver;
     [SerializeField] private TowerBehavior towerBehavior;
+    [SerializeField] private MainCameraBehavior mainCameraBehavior;
     [SerializeField] private UIDisplayBehavior uiDisplayBehavior;
 
 
@@ -52,8 +52,7 @@ public class GameManager : MonoBehaviour {
 
         towerBehavior.ResetTower();
 
-        //make the camera follow the new block
-        Camera.main.transform.DOLocalMoveY(0, 0.2f);
+        mainCameraBehavior.ResetPosition();
 
         uiDisplayBehavior.DisplayTitle();
     }
@@ -63,7 +62,7 @@ public class GameManager : MonoBehaviour {
         towerBehavior.GenerateNextBlock();
 
         //make the camera follow the new block
-        Camera.main.transform.DOLocalMoveY(towerBehavior.Level, 0.5f);
+        mainCameraBehavior.IncrementLevel(towerBehavior.Level);
 
         uiDisplayBehavior.DisplayScore(towerBehavior.Level);
     }

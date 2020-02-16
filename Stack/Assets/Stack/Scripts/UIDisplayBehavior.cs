@@ -35,8 +35,6 @@ public class UIDisplayBehavior : MonoBehaviour {
     ///show retry text and hide title and score
     public void DisplayRetry() {
 
-        goTitle.gameObject.SetActive(false);
-        textScore.gameObject.SetActive(false);
         textRetry.gameObject.SetActive(true);
     }
 

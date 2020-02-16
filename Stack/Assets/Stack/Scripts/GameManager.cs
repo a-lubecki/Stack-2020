@@ -4,11 +4,17 @@
 public class GameManager : MonoBehaviour {
 
 
+    private static readonly int MIN_PERFECT_STACK_COUNT_TO_GROW = 7;
+
+
     [SerializeField] private bool isPlaying;
     [SerializeField] private bool isGameOver;
     [SerializeField] private TowerBehavior towerBehavior;
     [SerializeField] private MainCameraBehavior mainCameraBehavior;
     [SerializeField] private UIDisplayBehavior uiDisplayBehavior;
+    [SerializeField] private AudioBehavior audioBehavior;
+
+    private int perfectStackCount = 0;
 
 
     void Start() {
@@ -34,8 +40,11 @@ public class GameManager : MonoBehaviour {
     private void StartPlaying() {
 
         isPlaying = true;
+        perfectStackCount = 0;
 
         GenerateNextBlock();
+
+        audioBehavior.PlaySoundStart();
     }
 
     private void StopPlaying() {
@@ -55,6 +64,8 @@ public class GameManager : MonoBehaviour {
         mainCameraBehavior.ResetPosition();
 
         uiDisplayBehavior.DisplayTitle();
+
+        audioBehavior.PlaySoundRetry();
     }
 
     private void GenerateNextBlock() {
@@ -62,23 +73,42 @@ public class GameManager : MonoBehaviour {
         towerBehavior.GenerateNextBlock();
 
         //make the camera follow the new block
-        mainCameraBehavior.IncrementLevel(towerBehavior.Level);
+        mainCameraBehavior.IncrementLevel(towerBehavior.level);
 
-        uiDisplayBehavior.DisplayScore(towerBehavior.Level);
+        uiDisplayBehavior.DisplayScore(towerBehavior.level);
     }
 
     private void TryStackCurrentBlock() {
 
         var hasStacked = towerBehavior.StackCurrentBlock();
 
-        if (hasStacked) {
+        if (!hasStacked) {
+            StopPlaying();
+            return;
+        }
 
-            towerBehavior.IncrementLevel();
-            GenerateNextBlock();
+        if (towerBehavior.hasPerfectStackPosition) {
+
+            perfectStackCount++;
+            audioBehavior.PlaySoundPerfectStack(perfectStackCount);
+
+            //grow the top block of the tower to reward the player if he stacked perfectly several blocks
+            if (perfectStackCount >= MIN_PERFECT_STACK_COUNT_TO_GROW) {
+
+                bool hasGrown = towerBehavior.GrowTopBlock();
+                if (hasGrown) {
+                    audioBehavior.PlaySoundGrowBlock();
+                }
+            }
 
         } else {
-            StopPlaying();
+
+            perfectStackCount = 0;
+            audioBehavior.PlaySoundBadStack();
         }
+
+        towerBehavior.IncrementLevel();
+        GenerateNextBlock();
     }
 
 }

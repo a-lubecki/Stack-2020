@@ -10,7 +10,6 @@ public class TowerBehavior : MonoBehaviour {
     public static readonly float THRESHOLD_EXACT_BLOCK_STACKING = 0.3f;
 
 
-    [SerializeField] private int level;
     [SerializeField] private BlockBehavior baseBlockBehavior;
     [SerializeField] private Transform trBlocks;
     [SerializeField] private LeanGameObjectPool poolBlocks;
@@ -18,11 +17,10 @@ public class TowerBehavior : MonoBehaviour {
     private BlockBehavior previousBlockBehavior;
     private BlockBehavior topBlockBehavior;
 
-    public int Level {
-        get {
-            return level;
-        }
-    }
+
+    public int level { get; private set; }
+    public bool hasPerfectStackPosition { get; private set; }
+
 
     private ColorIncrementManager colorIncrementManager = new ColorIncrementManager();
 
@@ -54,6 +52,8 @@ public class TowerBehavior : MonoBehaviour {
     }
 
     public void GenerateNextBlock() {
+
+        hasPerfectStackPosition = false;
 
         //replace the previous block by the current one
         previousBlockBehavior = topBlockBehavior;
@@ -91,6 +91,8 @@ public class TowerBehavior : MonoBehaviour {
             //perfect or almost perfect
             topBlockBehavior.MoveOverOtherBlock(previousBlockBehavior);
 
+            hasPerfectStackPosition = true;
+
         } else {
 
             //generate the rest of the cut block before resizing the current block to keep the same position and scale
@@ -108,6 +110,12 @@ public class TowerBehavior : MonoBehaviour {
         }
 
         return true;
+    }
+
+    public bool GrowTopBlock() {
+
+        ///TODO
+        return false;
     }
 
 }

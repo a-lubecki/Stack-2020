@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour {
             audioBehavior.PlaySoundPerfectStack(perfectStackCount);
 
             //grow the top block of the tower to reward the player if he stacked perfectly several blocks
-            if (perfectStackCount >= MIN_PERFECT_STACK_COUNT_TO_GROW) {
+            if (perfectStackCount > MIN_PERFECT_STACK_COUNT_TO_GROW) {
 
                 bool hasGrown = towerBehavior.GrowTopBlock();
                 if (hasGrown) {

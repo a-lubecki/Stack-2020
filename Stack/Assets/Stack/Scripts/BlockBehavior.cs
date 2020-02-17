@@ -9,7 +9,7 @@ public class BlockBehavior : MonoBehaviour {
     ///the max position of the moving animation
     public static readonly float MAX_AMPLITUDE = 6;
 
-    public static readonly float MIN_SPEED = 11;
+    public static readonly float MIN_SPEED = 8;
     public static readonly float MAX_SPEED = 20;
 
     ///the number of levels before incrementing the speed
@@ -231,6 +231,63 @@ public class BlockBehavior : MonoBehaviour {
         goCutPart.transform.localPosition = newCutPos;
         goCutPart.transform.localScale = newCutSize;
     }
+
+    public bool Grow(float additionalSize, Vector2 centerToTarget, Vector2 maxSize) {
+
+        if (additionalSize <= 0) {
+            throw new ArgumentException("Additionnal size must be positive");
+        }
+
+        var size = transform.localScale;
+
+        if (mustMoveOnXAxis) {
+
+            if (size.x >= maxSize.x) {
+                //already reached the max size on x axis
+                return false;
+            }
+
+        } else {
+
+            if (size.z >= maxSize.y) {
+                //already reached the max size on z axis
+                return false;
+            }
+        }
+
+        var pos = transform.localPosition;
+
+        if (mustMoveOnXAxis) {
+
+            var multiplier = (pos.x > centerToTarget.x) ? -1 : 1;
+            pos.x += multiplier * 0.5f * additionalSize;
+
+            size.x += additionalSize;
+            //recalculate the pos and the size if size exeeded
+            if (size.x > maxSize.x) {
+                pos.x += multiplier * 0.5f * (maxSize.x - size.x);
+                size.x = maxSize.x;
+            }
+
+        } else {
+
+            var multiplier = (pos.z > centerToTarget.y) ? -1 : 1;
+            pos.z += multiplier * 0.5f * additionalSize;
+
+            size.z += additionalSize;
+            //recalculate the pos and the size if size exeeded
+            if (size.z > maxSize.y) {
+                pos.z += multiplier * 0.5f * (maxSize.y - size.z);
+                size.z = maxSize.y;
+            }
+        }
+
+        transform.localPosition = pos;
+        transform.localScale = size;
+
+        return true;
+    }
+
 
     private static float CalculateNewSpeed(int level) {
 

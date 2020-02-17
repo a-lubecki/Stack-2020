@@ -114,8 +114,18 @@ public class TowerBehavior : MonoBehaviour {
 
     public bool GrowTopBlock() {
 
-        ///TODO
-        return false;
+        if (!HasTopBlock()) {
+            throw new InvalidOperationException("Can't grow unexisting block");
+        }
+
+        var basePos = baseBlockBehavior.transform.localPosition;
+        var baseSize = baseBlockBehavior.transform.localScale;
+
+        return topBlockBehavior.Grow(
+            UnityEngine.Random.Range(0.3f, 2),
+            new Vector2(basePos.x, basePos.z),
+            new Vector2(baseSize.x, baseSize.z)
+        );
     }
 
 }

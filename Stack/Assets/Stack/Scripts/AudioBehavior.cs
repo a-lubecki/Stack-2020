@@ -18,13 +18,13 @@ public class AudioBehavior : MonoBehaviour {
 
     ///the pitches of the 7 music notes for the first range
     private float[] pitchByMusicNote = {
-        0/12f, //C - do
-        2/12f, //D - ré
-        4/12f, //E - mi
-        5/12f, //F - fa
-        7/12f, //G - sol
-        9/12f, //A - la
-        11/12f, //B - si
+        1/12f, //C - do
+        3/12f, //D - ré
+        5/12f, //E - mi
+        6/12f, //F - fa
+        8/12f, //G - sol
+        10/12f, //A - la
+        12/12f, //B - si
     };
 
 

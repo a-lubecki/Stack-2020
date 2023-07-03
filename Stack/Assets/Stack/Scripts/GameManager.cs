@@ -4,7 +4,7 @@
 public class GameManager : MonoBehaviour {
 
 
-    private static readonly int MIN_PERFECT_STACK_COUNT_TO_GROW = 7;
+    private static readonly int MIN_PERFECT_STACK_COUNT_TO_GROW = 5;
 
 
     [SerializeField] private bool isPlaying;
@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour {
         isPlaying = true;
         perfectStackCount = 0;
 
+        
         GenerateNextBlock();
 
         audioBehavior.PlaySoundStart();
@@ -52,7 +53,11 @@ public class GameManager : MonoBehaviour {
         isPlaying = false;
         isGameOver = true;
 
+
         uiDisplayBehavior.DisplayRetry();
+
+        Handheld.Vibrate();
+
     }
 
     private void ResetTower() {
@@ -98,6 +103,7 @@ public class GameManager : MonoBehaviour {
                 bool hasGrown = towerBehavior.GrowTopBlock();
                 if (hasGrown) {
                     audioBehavior.PlaySoundGrowBlock();
+                       
                 }
             }
 

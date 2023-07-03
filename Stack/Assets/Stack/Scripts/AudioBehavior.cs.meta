@@ -3,7 +3,13 @@ guid: 6c245f00387764c26bba326784e057df
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - clipBrick: {fileID: 8300000, guid: 76c2e8f31a2eb834d8c9e36acfacf5a4, type: 3}
+  - clipGuitarHigh: {fileID: 8300000, guid: 12204489e0a4140c094575521a66cac0, type: 3}
+  - clipGuitarMedium: {fileID: 8300000, guid: 0f10aecdb298c4d77903634ac5eb853b, type: 3}
+  - clipWood: {fileID: 8300000, guid: 76c2e8f31a2eb834d8c9e36acfacf5a4, type: 3}
+  - clipGuitarXylophone: {fileID: 8300000, guid: 76c2e8f31a2eb834d8c9e36acfacf5a4,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

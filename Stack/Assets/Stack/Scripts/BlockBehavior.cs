@@ -230,6 +230,7 @@ public class BlockBehavior : MonoBehaviour {
 
         goCutPart.transform.localPosition = newCutPos;
         goCutPart.transform.localScale = newCutSize;
+
     }
 
     public bool Grow(float additionalSize, Vector2 centerToTarget, Vector2 maxSize) {

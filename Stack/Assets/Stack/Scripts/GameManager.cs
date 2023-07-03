@@ -106,6 +106,8 @@ public class GameManager : MonoBehaviour {
                        
                 }
             }
+            
+
 
         } else {
 
@@ -115,6 +117,7 @@ public class GameManager : MonoBehaviour {
 
         towerBehavior.IncrementLevel();
         GenerateNextBlock();
+        ScoreManager.SaveHighScore(towerBehavior.level);
     }
 
 }

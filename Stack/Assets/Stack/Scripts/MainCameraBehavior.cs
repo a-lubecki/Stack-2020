@@ -56,4 +56,22 @@ public class MainCameraBehavior : MonoBehaviour {
         return bounds;
     }
 
+    private Quaternion originalRotation;
+
+    void Start()
+    {
+        originalRotation = transform.rotation;
+    }
+
+    public void RotateCameraX(float angle)
+    {
+        // Rotar la cámara en el eje X
+        LeanTween.rotateX(gameObject, angle, 0.5f).setOnComplete(ReturnToOriginalRotation);
+    }
+
+    private void ReturnToOriginalRotation()
+    {
+        // Regresar la cámara a la posición original
+        LeanTween.rotate(gameObject, originalRotation.eulerAngles, 0.5f);
+    }
 }

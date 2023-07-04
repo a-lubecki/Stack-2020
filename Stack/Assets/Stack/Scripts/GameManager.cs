@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -13,11 +13,18 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private MainCameraBehavior mainCameraBehavior;
     [SerializeField] private UIDisplayBehavior uiDisplayBehavior;
     [SerializeField] private AudioBehavior audioBehavior;
+   
 
     private int perfectStackCount = 0;
+    private int highScore = 0;
 
 
     void Start() {
+
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
+
+        // Mostrar el puntaje más alto en la interfaz de usuario
+        uiDisplayBehavior.DisplayHighScore(highScore);
 
         uiDisplayBehavior.DisplayTitle();
     }
@@ -42,7 +49,9 @@ public class GameManager : MonoBehaviour {
         isPlaying = true;
         perfectStackCount = 0;
 
-        
+        uiDisplayBehavior.DisplayTitle();
+       // uiDisplayBehavior.HideMessage();
+      
         GenerateNextBlock();
 
         audioBehavior.PlaySoundStart();

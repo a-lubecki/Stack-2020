@@ -392,7 +392,9 @@
           },
           {
             "name": "Sprite",
-            "scenes": [],
+            "scenes": [
+              "Assets/Stack/Scenes/Stack.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },

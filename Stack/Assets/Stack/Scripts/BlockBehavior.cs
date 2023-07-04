@@ -15,7 +15,7 @@ public class BlockBehavior : MonoBehaviour {
     ///the number of levels before incrementing the speed
     public static readonly int LAST_LEVEL_FOR_MIN_SPEED = 10;
     ///the number of levels when the speed must stop incrementing
-    public static readonly int FIRST_LEVEL_FOR_MAX_SPEED = 80;
+    public static readonly int FIRST_LEVEL_FOR_MAX_SPEED = 50;
 
 
     [SerializeField] private bool mustMoveOnXAxis;

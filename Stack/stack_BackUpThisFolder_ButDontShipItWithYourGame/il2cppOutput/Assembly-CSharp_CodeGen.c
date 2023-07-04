@@ -1177,6 +1177,9 @@ extern void GroundBehavior__ctor_mEFAD5732497A57BEFA8AD289B13FBA17D3D09B3E (void
 extern void MainCameraBehavior_ResetPosition_m8254F857E74E17F5C57667E22DBC264CB6E3FA81 (void);
 extern void MainCameraBehavior_IncrementLevel_m10B1EC871ED8099DEDC124FBD5A88E7EC9643118 (void);
 extern void MainCameraBehavior_UpdateBackgroundColor_mA66505D683AD420B440F0F38D116C8E54A533B34 (void);
+extern void MainCameraBehavior_ChangeRandomImagePath_mC54599080628AEF191D60540523A85BBDEE8C2FF (void);
+extern void MainCameraBehavior_LoadTextureFromFile_mCB2A9C223D5B9C0D13E2700A3394F5518DD20C5F (void);
+extern void MainCameraBehavior_Update_mBE0B4D9FAE8A1FAF58BFEE02D29D610BF8648D19 (void);
 extern void MainCameraBehavior_CalculateTowerBounds_m52CCB80225204121A9AF1F5F6EE50CF504FE27B4 (void);
 extern void MainCameraBehavior_Start_mD5EFB8951369450967648CFEEB96862EE64808F0 (void);
 extern void MainCameraBehavior_RotateCameraX_mA996DE1AECAF8687C4D0870F20599314665629C6 (void);
@@ -1691,7 +1694,7 @@ extern void Physics_SetOrientationOnPath_mF7B4534D20EAC6F567A637C1F2B1FCE7A488D5
 extern void Physics_HasRigidbody2D_m6533193511306798987366A41DAC0673B8C93A74 (void);
 extern void Physics_HasRigidbody_m2C14C105800EDA31ABA37309DB2A32034FEB11B4 (void);
 extern void Physics_CreateDOTweenPathTween_mFF1665C952DD8B4444A221F886BA11DE795B3FBD (void);
-static Il2CppMethodPointer s_methodPointers[1695] = 
+static Il2CppMethodPointer s_methodPointers[1698] = 
 {
 	Following_Start_m8DAB4EBBCA79FB328F1B1349132755A768CA35C7,
 	Following_Update_m243F944258344ABD8BB41F2A5F68C6851AEB2605,
@@ -2858,6 +2861,9 @@ static Il2CppMethodPointer s_methodPointers[1695] =
 	MainCameraBehavior_ResetPosition_m8254F857E74E17F5C57667E22DBC264CB6E3FA81,
 	MainCameraBehavior_IncrementLevel_m10B1EC871ED8099DEDC124FBD5A88E7EC9643118,
 	MainCameraBehavior_UpdateBackgroundColor_mA66505D683AD420B440F0F38D116C8E54A533B34,
+	MainCameraBehavior_ChangeRandomImagePath_mC54599080628AEF191D60540523A85BBDEE8C2FF,
+	MainCameraBehavior_LoadTextureFromFile_mCB2A9C223D5B9C0D13E2700A3394F5518DD20C5F,
+	MainCameraBehavior_Update_mBE0B4D9FAE8A1FAF58BFEE02D29D610BF8648D19,
 	MainCameraBehavior_CalculateTowerBounds_m52CCB80225204121A9AF1F5F6EE50CF504FE27B4,
 	MainCameraBehavior_Start_mD5EFB8951369450967648CFEEB96862EE64808F0,
 	MainCameraBehavior_RotateCameraX_mA996DE1AECAF8687C4D0870F20599314665629C6,
@@ -3389,7 +3395,7 @@ static Il2CppMethodPointer s_methodPointers[1695] =
 	Physics_HasRigidbody_m2C14C105800EDA31ABA37309DB2A32034FEB11B4,
 	Physics_CreateDOTweenPathTween_mFF1665C952DD8B4444A221F886BA11DE795B3FBD,
 };
-static const int32_t s_InvokerIndices[1695] = 
+static const int32_t s_InvokerIndices[1698] = 
 {
 	4677,
 	4677,
@@ -4556,6 +4562,9 @@ static const int32_t s_InvokerIndices[1695] =
 	4677,
 	3775,
 	3832,
+	4677,
+	3360,
+	4677,
 	4496,
 	4677,
 	3832,
@@ -5090,10 +5099,10 @@ static const int32_t s_InvokerIndices[1695] =
 static const Il2CppTokenRangePair s_rgctxIndices[5] = 
 {
 	{ 0x0200007F, { 0, 17 } },
-	{ 0x06000556, { 17, 2 } },
-	{ 0x06000557, { 19, 2 } },
-	{ 0x06000564, { 21, 3 } },
-	{ 0x06000566, { 24, 1 } },
+	{ 0x06000559, { 17, 2 } },
+	{ 0x0600055A, { 19, 2 } },
+	{ 0x06000567, { 21, 3 } },
+	{ 0x06000569, { 24, 1 } },
 };
 extern const uint32_t g_rgctx_LeanClassPool_1_tF1A20490D85E5B8B776773FEAAA412CB209A4352;
 extern const uint32_t g_rgctx_List_1_tF4C7BCBF6879FFB2E0FEE4C083694F879046409E;
@@ -5152,7 +5161,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	1695,
+	1698,
 	s_methodPointers,
 	0,
 	NULL,

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
 public class GameManager : MonoBehaviour {
 
 
@@ -13,11 +13,11 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private MainCameraBehavior mainCameraBehavior;
     [SerializeField] private UIDisplayBehavior uiDisplayBehavior;
     [SerializeField] private AudioBehavior audioBehavior;
-   
+
 
     private int perfectStackCount = 0;
     private int highScore = 0;
-
+    private bool soundAchievement = false;
 
     void Start() {
 
@@ -48,10 +48,10 @@ public class GameManager : MonoBehaviour {
 
         isPlaying = true;
         perfectStackCount = 0;
-
+        soundAchievement = false;
         uiDisplayBehavior.DisplayTitle();
-       // uiDisplayBehavior.HideMessage();
-      
+        // uiDisplayBehavior.HideMessage();
+
         GenerateNextBlock();
 
         audioBehavior.PlaySoundStart();
@@ -98,6 +98,16 @@ public class GameManager : MonoBehaviour {
             // Guardar el nuevo puntaje más alto en PlayerPrefs
             PlayerPrefs.SetInt("HighScore", highScore);
             PlayerPrefs.Save();
+            
+            if (!soundAchievement )
+            {
+                audioBehavior.PlaySoundHighScore();
+
+                uiDisplayBehavior.ShowStartMessage(highScore);
+                soundAchievement=true;
+            }
+            
+            
         }
         uiDisplayBehavior.UpdateHighScore(highScore);
     }
@@ -122,10 +132,10 @@ public class GameManager : MonoBehaviour {
                 bool hasGrown = towerBehavior.GrowTopBlock();
                 if (hasGrown) {
                     audioBehavior.PlaySoundGrowBlock();
-                       
+
                 }
             }
-            
+
 
 
         } else {
@@ -138,5 +148,6 @@ public class GameManager : MonoBehaviour {
         GenerateNextBlock();
         ScoreManager.SaveHighScore(towerBehavior.level);
     }
+
 
 }

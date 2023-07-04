@@ -9,6 +9,7 @@ public class AudioBehavior : MonoBehaviour {
     [SerializeField] private AudioClip clipGuitarMedium;
     [SerializeField] private AudioClip clipWood;
     [SerializeField] private AudioClip clipGuitarXylophone;
+    [SerializeField] private AudioClip clipAchievement;
 
 
     private AudioSource audioSourceDefault;
@@ -75,4 +76,9 @@ public class AudioBehavior : MonoBehaviour {
         audioSourceGrow.PlayOneShot(clipBrick);
     }
 
+    public void PlaySoundHighScore()
+    {
+
+        audioSourceDefault.PlayOneShot(clipAchievement);
+    }
 }

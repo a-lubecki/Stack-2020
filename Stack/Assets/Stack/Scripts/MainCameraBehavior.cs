@@ -37,7 +37,7 @@ public class MainCameraBehavior : MonoBehaviour {
     public void IncrementLevel(int level) {
 
         transform.DOLocalMoveY(-level, 0.1f);
-
+        
         UpdateBackgroundColor(0.01f);
     }
 

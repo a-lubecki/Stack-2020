@@ -7233,6 +7233,7 @@ struct GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6  : public MonoBehav
 	UIDisplayBehavior_t63E8558BD35E91ED550E174A774A81D5D3339DAA* ___uiDisplayBehavior;
 	AudioBehavior_t9EA6971CADEF0FEDF1304CF82AD47079AE2957E7* ___audioBehavior;
 	int32_t ___perfectStackCount;
+	int32_t ___highScore;
 };
 struct GeneralAdvancedTechniques_t958D160A06C1CF220693CA89226FA71438897037  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -7755,6 +7756,7 @@ struct UIDisplayBehavior_t63E8558BD35E91ED550E174A774A81D5D3339DAA  : public Mon
 	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___textScore;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___goTitle;
 	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___textRetry;
+	TextMeshProUGUI_t101091AF4B578BB534C92E9D1EEAF0611636D957* ___textHighScore;
 };
 struct particleAttractorLinear_t9D8829A041A25FF5EBCA5CFA71BC3AF2B0298F73  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -10409,18 +10411,18 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3517[9] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3518[6] = 
 {
 	static_cast<int32_t>(offsetof(ColorIncrementManager_tFC0F95B8C521B72415F7E9067B74DC23FB781F6C_StaticFields, ___MIN_SATURATION)),static_cast<int32_t>(offsetof(ColorIncrementManager_tFC0F95B8C521B72415F7E9067B74DC23FB781F6C_StaticFields, ___MAX_SATURATION)),static_cast<int32_t>(offsetof(ColorIncrementManager_tFC0F95B8C521B72415F7E9067B74DC23FB781F6C_StaticFields, ___MIN_VALUE)),static_cast<int32_t>(offsetof(ColorIncrementManager_tFC0F95B8C521B72415F7E9067B74DC23FB781F6C_StaticFields, ___MAX_VALUE)),static_cast<int32_t>(offsetof(ColorIncrementManager_tFC0F95B8C521B72415F7E9067B74DC23FB781F6C, ___isIncrementingSaturation)),static_cast<int32_t>(offsetof(ColorIncrementManager_tFC0F95B8C521B72415F7E9067B74DC23FB781F6C, ___isIncrementingValue)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3519[8] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3519[9] = 
 {
-	static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___MIN_PERFECT_STACK_COUNT_TO_GROW)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___isPlaying)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___isGameOver)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___towerBehavior)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___mainCameraBehavior)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___uiDisplayBehavior)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___audioBehavior)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___perfectStackCount)),};
+	static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6_StaticFields, ___MIN_PERFECT_STACK_COUNT_TO_GROW)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___isPlaying)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___isGameOver)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___towerBehavior)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___mainCameraBehavior)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___uiDisplayBehavior)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___audioBehavior)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___perfectStackCount)),static_cast<int32_t>(offsetof(GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6, ___highScore)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3521[3] = 
 {
 	static_cast<int32_t>(offsetof(MainCameraBehavior_t20DE18C2FD6AC68A5C98400F7CADF719A863D8EB, ___imageBackground)),static_cast<int32_t>(offsetof(MainCameraBehavior_t20DE18C2FD6AC68A5C98400F7CADF719A863D8EB, ___colorIncrementManager)),static_cast<int32_t>(offsetof(MainCameraBehavior_t20DE18C2FD6AC68A5C98400F7CADF719A863D8EB, ___originalRotation)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3522[9] = 
 {
 	static_cast<int32_t>(offsetof(TowerBehavior_tA083D0B5D931B38016D523EF2C6E0A084000D7BC_StaticFields, ___THRESHOLD_EXACT_BLOCK_STACKING)),static_cast<int32_t>(offsetof(TowerBehavior_tA083D0B5D931B38016D523EF2C6E0A084000D7BC, ___baseBlockBehavior)),static_cast<int32_t>(offsetof(TowerBehavior_tA083D0B5D931B38016D523EF2C6E0A084000D7BC, ___trBlocks)),static_cast<int32_t>(offsetof(TowerBehavior_tA083D0B5D931B38016D523EF2C6E0A084000D7BC, ___poolBlocks)),static_cast<int32_t>(offsetof(TowerBehavior_tA083D0B5D931B38016D523EF2C6E0A084000D7BC, ___previousBlockBehavior)),static_cast<int32_t>(offsetof(TowerBehavior_tA083D0B5D931B38016D523EF2C6E0A084000D7BC, ___topBlockBehavior)),static_cast<int32_t>(offsetof(TowerBehavior_tA083D0B5D931B38016D523EF2C6E0A084000D7BC, ___U3ClevelU3Ek__BackingField)),static_cast<int32_t>(offsetof(TowerBehavior_tA083D0B5D931B38016D523EF2C6E0A084000D7BC, ___U3ChasPerfectStackPositionU3Ek__BackingField)),static_cast<int32_t>(offsetof(TowerBehavior_tA083D0B5D931B38016D523EF2C6E0A084000D7BC, ___colorIncrementManager)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3523[3] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3523[4] = 
 {
-	static_cast<int32_t>(offsetof(UIDisplayBehavior_t63E8558BD35E91ED550E174A774A81D5D3339DAA, ___textScore)),static_cast<int32_t>(offsetof(UIDisplayBehavior_t63E8558BD35E91ED550E174A774A81D5D3339DAA, ___goTitle)),static_cast<int32_t>(offsetof(UIDisplayBehavior_t63E8558BD35E91ED550E174A774A81D5D3339DAA, ___textRetry)),};
+	static_cast<int32_t>(offsetof(UIDisplayBehavior_t63E8558BD35E91ED550E174A774A81D5D3339DAA, ___textScore)),static_cast<int32_t>(offsetof(UIDisplayBehavior_t63E8558BD35E91ED550E174A774A81D5D3339DAA, ___goTitle)),static_cast<int32_t>(offsetof(UIDisplayBehavior_t63E8558BD35E91ED550E174A774A81D5D3339DAA, ___textRetry)),static_cast<int32_t>(offsetof(UIDisplayBehavior_t63E8558BD35E91ED550E174A774A81D5D3339DAA, ___textHighScore)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3524[7] = 
 {
 	static_cast<int32_t>(offsetof(SpawnEffect_t45A286A79103ADF7913F0CFF17ECB6F6AF199438, ___spawnEffectTime)),static_cast<int32_t>(offsetof(SpawnEffect_t45A286A79103ADF7913F0CFF17ECB6F6AF199438, ___pause)),static_cast<int32_t>(offsetof(SpawnEffect_t45A286A79103ADF7913F0CFF17ECB6F6AF199438, ___fadeIn)),static_cast<int32_t>(offsetof(SpawnEffect_t45A286A79103ADF7913F0CFF17ECB6F6AF199438, ___ps)),static_cast<int32_t>(offsetof(SpawnEffect_t45A286A79103ADF7913F0CFF17ECB6F6AF199438, ___timer)),static_cast<int32_t>(offsetof(SpawnEffect_t45A286A79103ADF7913F0CFF17ECB6F6AF199438, ____renderer)),static_cast<int32_t>(offsetof(SpawnEffect_t45A286A79103ADF7913F0CFF17ECB6F6AF199438, ___shaderProperty)),};

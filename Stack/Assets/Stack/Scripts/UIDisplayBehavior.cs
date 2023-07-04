@@ -47,4 +47,9 @@ public class UIDisplayBehavior : MonoBehaviour {
         textHighScore.text = "High Score: " + highScore.ToString();
     }
 
+    public void UpdateHighScore(int score)
+    {
+        // Mostrar el puntaje más alto en la interfaz de usuario
+        textHighScore.text =  "High Score: " + score.ToString();
+    }
 }

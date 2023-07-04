@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour {
 
 
         uiDisplayBehavior.DisplayRetry();
-
+        ScoreManager.SaveHighScore(towerBehavior.level);
         Handheld.Vibrate();
 
     }
@@ -90,6 +90,16 @@ public class GameManager : MonoBehaviour {
         mainCameraBehavior.IncrementLevel(towerBehavior.level);
 
         uiDisplayBehavior.DisplayScore(towerBehavior.level);
+        if (towerBehavior.level > highScore)
+        {
+            // Actualizar el puntaje más alto
+            highScore = towerBehavior.level;
+
+            // Guardar el nuevo puntaje más alto en PlayerPrefs
+            PlayerPrefs.SetInt("HighScore", highScore);
+            PlayerPrefs.Save();
+        }
+        uiDisplayBehavior.UpdateHighScore(highScore);
     }
 
     private void TryStackCurrentBlock() {

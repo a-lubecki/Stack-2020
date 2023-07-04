@@ -1197,6 +1197,8 @@ extern void TowerBehavior__cctor_mF8B871483A2B1DE21A0554DBEDF9C7196D7E1BC3 (void
 extern void UIDisplayBehavior_DisplayTitle_mFB7601AF95F7F4C4E7B5671B40D8698094F7390A (void);
 extern void UIDisplayBehavior_DisplayScore_m35569B3D9103964AB3AED61077ED54BAAE829E79 (void);
 extern void UIDisplayBehavior_DisplayRetry_mCD1CB342F7256CE8AC714DBCC1137BFD76ECBC2E (void);
+extern void UIDisplayBehavior_DisplayHighScore_m8A2765F80CFBCD3DFC8A3D37D4F62DEC147F527E (void);
+extern void UIDisplayBehavior_UpdateHighScore_mE23A603A5C23AB182FD25408C4ED11983CDC57D6 (void);
 extern void UIDisplayBehavior__ctor_m924A3DB76EEAE1D85838B21D03F17864A39CC4BB (void);
 extern void SpawnEffect_Start_m07241114876D469E2C6C93AA6E2A33D9D7ED6776 (void);
 extern void SpawnEffect_Update_mAE49964994B77657A3E847FD62F48C5617817F9F (void);
@@ -1680,7 +1682,7 @@ extern void Physics_SetOrientationOnPath_mF7B4534D20EAC6F567A637C1F2B1FCE7A488D5
 extern void Physics_HasRigidbody2D_m6533193511306798987366A41DAC0673B8C93A74 (void);
 extern void Physics_HasRigidbody_m2C14C105800EDA31ABA37309DB2A32034FEB11B4 (void);
 extern void Physics_CreateDOTweenPathTween_mFF1665C952DD8B4444A221F886BA11DE795B3FBD (void);
-static Il2CppMethodPointer s_methodPointers[1684] = 
+static Il2CppMethodPointer s_methodPointers[1686] = 
 {
 	Following_Start_m8DAB4EBBCA79FB328F1B1349132755A768CA35C7,
 	Following_Update_m243F944258344ABD8BB41F2A5F68C6851AEB2605,
@@ -2867,6 +2869,8 @@ static Il2CppMethodPointer s_methodPointers[1684] =
 	UIDisplayBehavior_DisplayTitle_mFB7601AF95F7F4C4E7B5671B40D8698094F7390A,
 	UIDisplayBehavior_DisplayScore_m35569B3D9103964AB3AED61077ED54BAAE829E79,
 	UIDisplayBehavior_DisplayRetry_mCD1CB342F7256CE8AC714DBCC1137BFD76ECBC2E,
+	UIDisplayBehavior_DisplayHighScore_m8A2765F80CFBCD3DFC8A3D37D4F62DEC147F527E,
+	UIDisplayBehavior_UpdateHighScore_mE23A603A5C23AB182FD25408C4ED11983CDC57D6,
 	UIDisplayBehavior__ctor_m924A3DB76EEAE1D85838B21D03F17864A39CC4BB,
 	SpawnEffect_Start_m07241114876D469E2C6C93AA6E2A33D9D7ED6776,
 	SpawnEffect_Update_mAE49964994B77657A3E847FD62F48C5617817F9F,
@@ -3367,7 +3371,7 @@ static Il2CppMethodPointer s_methodPointers[1684] =
 	Physics_HasRigidbody_m2C14C105800EDA31ABA37309DB2A32034FEB11B4,
 	Physics_CreateDOTweenPathTween_mFF1665C952DD8B4444A221F886BA11DE795B3FBD,
 };
-static const int32_t s_InvokerIndices[1684] = 
+static const int32_t s_InvokerIndices[1686] = 
 {
 	4677,
 	4677,
@@ -4554,6 +4558,8 @@ static const int32_t s_InvokerIndices[1684] =
 	4677,
 	3775,
 	4677,
+	3775,
+	3775,
 	4677,
 	4677,
 	4677,
@@ -5057,10 +5063,10 @@ static const int32_t s_InvokerIndices[1684] =
 static const Il2CppTokenRangePair s_rgctxIndices[5] = 
 {
 	{ 0x0200007E, { 0, 17 } },
-	{ 0x0600054B, { 17, 2 } },
-	{ 0x0600054C, { 19, 2 } },
-	{ 0x06000559, { 21, 3 } },
-	{ 0x0600055B, { 24, 1 } },
+	{ 0x0600054D, { 17, 2 } },
+	{ 0x0600054E, { 19, 2 } },
+	{ 0x0600055B, { 21, 3 } },
+	{ 0x0600055D, { 24, 1 } },
 };
 extern const uint32_t g_rgctx_LeanClassPool_1_tF1A20490D85E5B8B776773FEAAA412CB209A4352;
 extern const uint32_t g_rgctx_List_1_tF4C7BCBF6879FFB2E0FEE4C083694F879046409E;
@@ -5119,7 +5125,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	1684,
+	1686,
 	s_methodPointers,
 	0,
 	NULL,

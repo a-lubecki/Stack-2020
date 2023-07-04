@@ -11,6 +11,7 @@ public class UIDisplayBehavior : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI textRetry;
     [SerializeField] private TextMeshProUGUI textHighScore;
     [SerializeField] private TextMeshProUGUI messageText;
+    [SerializeField] private TextMeshProUGUI coinSystem;
 
     private bool hasShownStartMessage = false;
     private int previousHighScore = 0;
@@ -22,7 +23,9 @@ public class UIDisplayBehavior : MonoBehaviour {
         textScore.gameObject.SetActive(false);
         textRetry.gameObject.SetActive(false);
         textHighScore.gameObject.SetActive(true);
-        
+        coinSystem.gameObject.SetActive(true);
+
+
     }
 
     ///show score if not zero and hide title
@@ -32,7 +35,7 @@ public class UIDisplayBehavior : MonoBehaviour {
         textScore.gameObject.SetActive(true);
         textRetry.gameObject.SetActive(false);
         textHighScore.gameObject.SetActive(false);
-        
+        coinSystem.gameObject.SetActive(true);
         if (score <= 0) {
             textScore.text = "";
         } else {

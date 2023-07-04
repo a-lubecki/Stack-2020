@@ -13,11 +13,12 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private MainCameraBehavior mainCameraBehavior;
     [SerializeField] private UIDisplayBehavior uiDisplayBehavior;
     [SerializeField] private AudioBehavior audioBehavior;
-
+    [SerializeField] private CoinSystem coinSystem;
 
     private int perfectStackCount = 0;
     private int highScore = 0;
     private bool soundAchievement = false;
+    private int score = 0;
 
     void Start() {
 
@@ -65,7 +66,9 @@ public class GameManager : MonoBehaviour {
 
         uiDisplayBehavior.DisplayRetry();
         ScoreManager.SaveHighScore(towerBehavior.level);
+        coinSystem.CollectCoin(towerBehavior.level);
         Handheld.Vibrate();
+        score=0;
 
     }
 
@@ -88,7 +91,14 @@ public class GameManager : MonoBehaviour {
 
         //make the camera follow the new block
         mainCameraBehavior.IncrementLevel(towerBehavior.level);
+        score++;
 
+        // Verifica si el puntaje es un múltiplo de 20
+        if (score % 5 == 0)
+        {
+            // Llama a la función CollectCoin del CoinSystem para recolectar una moneda
+            coinSystem.CollectCoin(towerBehavior.level);
+        }
         uiDisplayBehavior.DisplayScore(towerBehavior.level);
         if (towerBehavior.level > highScore)
         {

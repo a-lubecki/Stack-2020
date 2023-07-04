@@ -13,6 +13,7 @@ public class MainCameraBehavior : MonoBehaviour {
     Texture2D myTexture;
     public RawImage rawImage;
     public string imagePath;
+    public CoinSystem coinSystem;
     [SerializeField] private RawImage imageBackground;
     [SerializeField] private RawImage imageBackground2;
     [SerializeField] private RawImage imageBackground3;

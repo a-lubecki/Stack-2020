@@ -24,21 +24,27 @@ public class GameManager2 : MonoBehaviour {
     public int matnum;
     void Start() {
 
-        highScore = PlayerPrefs.GetInt("HighScore", 0);
         coinCount = PlayerPrefs.GetInt("Coins", 0);
         // Mostrar el puntaje más alto en la interfaz de usuario
         uiDisplayBehavior.DisplayCoinSystem(coinCount);
-        uiDisplayBehavior.DisplayHighScore(highScore);
-        
+       
         uiDisplayBehavior.DisplayTitle();
     }
 
     void Update() {
 
+
         if (Input.GetMouseButtonDown(0))
         {
-            matnum = UnityEngine.Random.Range(0, 10);
-            shop.PurchaseBase(matnum);
+            Vector3 touchPosition = Input.mousePosition;
+
+            // Verificar si la posición del toque está en la parte inferior de la pantalla
+            if (touchPosition.y <= Screen.height * 0.35f)
+            {
+                matnum = UnityEngine.Random.Range(0, 10);
+                shop.PurchaseBase(matnum);
+            }
+           
         //    if (isPlaying)
         //    {
         //        TryStackCurrentBlock();
@@ -64,13 +70,6 @@ public class GameManager2 : MonoBehaviour {
 
     private void StartPlaying() {
 
-        isPlaying = true;
-        perfectStackCount = 0;
-        soundAchievement = false;
-        uiDisplayBehavior.DisplayTitle();
-        // uiDisplayBehavior.HideMessage();
-
-        GenerateNextBlock();
 
         audioBehavior.PlaySoundStart();
     }

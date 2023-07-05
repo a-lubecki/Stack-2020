@@ -14,28 +14,34 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private UIDisplayBehavior uiDisplayBehavior;
     [SerializeField] private AudioBehavior audioBehavior;
     [SerializeField] private CoinSystem coinSystem;
-
+    [SerializeField] public Shop shop;
     private int perfectStackCount = 0;
     private int highScore = 0;
     private int coinCount = 0;
+    private int skinN = 0;
     private bool soundAchievement = false;
     private int score = 0;
-
+    private int matnum;
     void Start() {
 
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         coinCount = PlayerPrefs.GetInt("Coins", 0);
+       
         // Mostrar el puntaje más alto en la interfaz de usuario
         uiDisplayBehavior.DisplayCoinSystem(coinCount);
         uiDisplayBehavior.DisplayHighScore(highScore);
-
+        
+        
         uiDisplayBehavior.DisplayTitle();
     }
 
     void Update() {
-
+        skinN = PlayerPrefs.GetInt("Skin", 0);
+        matnum = UnityEngine.Random.Range(0, 5);
+        shop.PurchaseBase(skinN);
         if (Input.GetMouseButtonDown(0))
         {
+            
             if (isPlaying)
             {
                 TryStackCurrentBlock();

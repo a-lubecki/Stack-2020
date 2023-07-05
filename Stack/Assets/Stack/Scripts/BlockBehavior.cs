@@ -22,7 +22,8 @@ public class BlockBehavior : MonoBehaviour {
     [SerializeField] private bool mustMoveOnPositiveDirection;
     [SerializeField] private bool isMoving;
     [SerializeField] private float speed;
-
+    [SerializeField] public Shop shop;
+    
 
     public bool MustMoveOnXAxis {
         get {
@@ -39,9 +40,19 @@ public class BlockBehavior : MonoBehaviour {
         }
     }
 
+    void Start()
+    {
+        
+        
+    }
     void Update() {
 
         Move();
+    }
+
+    public MeshFilter GetMeshFilter()
+    {
+        return GetComponent<MeshFilter>();
     }
 
     public void SetAsKinematic(bool isKinematic) {

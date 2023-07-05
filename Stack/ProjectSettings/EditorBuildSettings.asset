@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Stack/Scenes/Stack.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Stack/Scenes/Store.unity
+    guid: 2726f818d3a9ca94da46598bc4c3dc27
   m_configObjects: {}

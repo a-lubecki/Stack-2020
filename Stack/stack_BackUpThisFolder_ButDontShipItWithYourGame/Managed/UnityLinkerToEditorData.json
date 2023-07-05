@@ -40,7 +40,8 @@
           {
             "name": "AudioBehaviour",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -48,7 +49,8 @@
           {
             "name": "AudioClip",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -56,7 +58,8 @@
           {
             "name": "AudioListener",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -76,7 +79,8 @@
           {
             "name": "AudioSource",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -84,7 +88,8 @@
           {
             "name": "SampleClip",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -109,7 +114,8 @@
           {
             "name": "Camera",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -129,7 +135,8 @@
           {
             "name": "Cubemap",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -149,7 +156,8 @@
           {
             "name": "EditorExtension",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -163,7 +171,8 @@
           {
             "name": "GameObject",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -189,7 +198,8 @@
           {
             "name": "LevelGameManager",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -197,7 +207,8 @@
           {
             "name": "Light",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -205,7 +216,8 @@
           {
             "name": "LightProbes",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -213,7 +225,8 @@
           {
             "name": "LightingSettings",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -221,7 +234,8 @@
           {
             "name": "LightmapSettings",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -241,7 +255,8 @@
           {
             "name": "Material",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -249,7 +264,8 @@
           {
             "name": "Mesh",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -257,7 +273,8 @@
           {
             "name": "MeshFilter",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -265,7 +282,8 @@
           {
             "name": "MeshRenderer",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -273,7 +291,8 @@
           {
             "name": "MonoBehaviour",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -287,7 +306,8 @@
           {
             "name": "MonoScript",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -295,7 +315,8 @@
           {
             "name": "NamedObject",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 1,
             "icon": null
@@ -327,7 +348,8 @@
           {
             "name": "RectTransform",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -341,7 +363,8 @@
           {
             "name": "RenderSettings",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -373,7 +396,8 @@
           {
             "name": "Shader",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -617,7 +641,8 @@
           {
             "name": "ParticleSystem",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -625,7 +650,8 @@
           {
             "name": "ParticleSystemRenderer",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -638,7 +664,8 @@
           {
             "name": "BoxCollider",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -658,7 +685,8 @@
           {
             "name": "ConstantForce",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -678,7 +706,8 @@
           {
             "name": "Rigidbody",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -860,7 +889,8 @@
           {
             "name": "Font",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -903,7 +933,8 @@
           {
             "name": "Canvas",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -917,7 +948,8 @@
           {
             "name": "CanvasRenderer",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null

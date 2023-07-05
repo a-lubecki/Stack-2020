@@ -7,7 +7,7 @@ public class TowerBehavior : MonoBehaviour {
 
 
     ///the threshold that determine when a block is well stacked over the previous even if it's not perfectly stacked
-    public static readonly float THRESHOLD_EXACT_BLOCK_STACKING = 0.3f;
+    public static readonly float THRESHOLD_EXACT_BLOCK_STACKING = 0.6f;
 
 
     [SerializeField] private BlockBehavior baseBlockBehavior;
@@ -70,6 +70,8 @@ public class TowerBehavior : MonoBehaviour {
         topBlockBehavior.Init(level, !previousBlockBehavior.MustMoveOnXAxis, previousPos, previousSize);
         topBlockBehavior.Color = colorIncrementManager.NewColorFromOther(previousBlockBehavior.Color, 0.03f);
         topBlockBehavior.StartMoving();
+        baseBlockBehavior.transform.Rotate(Vector3.up, 10f, Space.World);
+
     }
 
     public bool StackCurrentBlock() {

@@ -34,17 +34,29 @@ public class GameManager : MonoBehaviour {
 
     void Update() {
 
-        //handle click or touch depending of the game status
-        if (Input.GetMouseButtonDown(0)) {
-
-            if (isPlaying) {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (isPlaying)
+            {
                 TryStackCurrentBlock();
-            } else if (isGameOver) {
+            }
+            else if (isGameOver)
+            {
                 ResetTower();
-            } else {
-                StartPlaying();
+            }
+            else
+            {
+                // Obtener la posición del toque o clic
+                Vector3 touchPosition = Input.mousePosition;
+
+                // Verificar si la posición del toque está en la parte inferior de la pantalla
+                if (touchPosition.y <= Screen.height * 0.35f)
+                {
+                    StartPlaying();
+                }
             }
         }
+
     }
 
     private void StartPlaying() {
@@ -95,7 +107,7 @@ public class GameManager : MonoBehaviour {
         score++;
 
         // Verifica si el puntaje es un múltiplo de 20
-        if (score % 10 == 0)
+        if (score % 20 == 0)
         {
             // Llama a la función CollectCoin del CoinSystem para recolectar una moneda
             coinSystem.CollectCoin(towerBehavior.level);

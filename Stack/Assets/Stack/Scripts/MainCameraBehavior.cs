@@ -131,6 +131,7 @@ public class MainCameraBehavior : MonoBehaviour {
     // Ejemplo de uso
     private void Update()
     {
+        RotateCameraX(10f);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ChangeRandomImagePath();
@@ -169,12 +170,12 @@ public class MainCameraBehavior : MonoBehaviour {
     public void RotateCameraX(float angle)
     {
         // Rotar la cámara en el eje X
-        LeanTween.rotateX(gameObject, angle, 0.5f).setOnComplete(ReturnToOriginalRotation);
+        LeanTween.rotateX(gameObject, angle, 0.1f);
     }
 
     private void ReturnToOriginalRotation()
     {
         // Regresar la cámara a la posición original
-        LeanTween.rotate(gameObject, originalRotation.eulerAngles, 0.5f);
+        LeanTween.rotate(gameObject, originalRotation.eulerAngles, 0.1f);
     }
 }

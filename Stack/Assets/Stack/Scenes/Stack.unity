@@ -483,6 +483,7 @@ MonoBehaviour:
   clipWood: {fileID: 8300000, guid: ccbbba59033793c4aa7e3fd375dd3ff7, type: 3}
   clipGuitarXylophone: {fileID: 8300000, guid: 1f78f690d76e0ce4fb794a209e8fc97e, type: 3}
   clipAchievement: {fileID: 8300000, guid: 76c2e8f31a2eb834d8c9e36acfacf5a4, type: 3}
+  clipCoinAdd: {fileID: 8300000, guid: 5b939671d455f96439214db5ecf00a70, type: 3}
 --- !u!82 &101275108
 AudioSource:
   m_ObjectHideFlags: 0
@@ -862,7 +863,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -6537,7 +6538,7 @@ RectTransform:
   m_GameObject: {fileID: 882979859}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -500}
-  m_LocalScale: {x: 0.88509, y: 0.6748811, z: 0.88509}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 344066763}
@@ -6602,7 +6603,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 1024
   m_textAlignment: 65535
@@ -7241,7 +7242,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Coins:'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 720592e645abb4345a22931a34701a4e, type: 2}
   m_sharedMaterial: {fileID: 3101063120554588471, guid: 720592e645abb4345a22931a34701a4e,
@@ -7646,7 +7647,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: b284a0bea151ce444957bb92f6b50ac4, type: 3}
+  m_Texture: {fileID: 2800000, guid: c4c548a339b4d41a590928c0c98934a7, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -7788,10 +7789,10 @@ RectTransform:
   m_Father: {fileID: 344066763}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.6}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 332, y: 125.00003}
-  m_SizeDelta: {x: -339.68, y: -170.02998}
+  m_AnchoredPosition: {x: 318.3, y: 552}
+  m_SizeDelta: {x: -339.68, y: -1024.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1803334275
 MonoBehaviour:
@@ -7849,7 +7850,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0

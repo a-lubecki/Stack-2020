@@ -1136,6 +1136,7 @@ extern void AudioBehavior_PlaySoundBadStack_m6C7C3E7F76E5847C8E5B1C9E78EC7B60B1A
 extern void AudioBehavior_PlaySoundPerfectStack_m3A92CC37594C098DDF607F56B118A749D9229846 (void);
 extern void AudioBehavior_PlaySoundGrowBlock_m026F3A08437F739577D84738001CDC8F505CC1A3 (void);
 extern void AudioBehavior_PlaySoundHighScore_m7953B7D5D1C52DB664D9A0B7E960C9B9B49BC3F3 (void);
+extern void AudioBehavior_PlayCoinAdd_m76D0BA9786EEEFA745A485C32F9A2102D3B5DD76 (void);
 extern void AudioBehavior__ctor_mEDDA32360FD0C84141A0198B96E6C0EC73F63114 (void);
 extern void BlockBehavior_get_MustMoveOnXAxis_m77B9207DA04A236C7CBB4C2932BC17FABC61774C (void);
 extern void BlockBehavior_get_Color_m84250E0816CE03C61A0E5C8AAD5479561E17C02B (void);
@@ -1159,7 +1160,8 @@ extern void BlockBehavior_Grow_m83D47C76996221AF2D2260AF09849BE7D31EACF3 (void);
 extern void BlockBehavior_CalculateNewSpeed_m81CA0A2D9EADE63DEC98C30028C50FA92685DA07 (void);
 extern void BlockBehavior__ctor_mE2085521478EE9214FED7F4838CD78052146AADC (void);
 extern void BlockBehavior__cctor_m1917D02FAC853B430144586FFEE919FFFD9759AE (void);
-extern void CoinSystem_CollectCoin_m67EFE1AA2C5957EEFA221C6BE0B7782120B8BE66 (void);
+extern void CoinSystem_Start_m1E1E87A571602BF33CB8D7950B333E785779186D (void);
+extern void CoinSystem_CollectCoin_m50DCEC335076850263D04D2776B8EA6842972E58 (void);
 extern void CoinSystem__ctor_m91E7A20F6037BCC110349B4621A04F70C91DD24D (void);
 extern void ColorIncrementManager_NewColorFromOther_mD2C17F6DAD03CCDC18F00A374AC2799FC5FA2E47 (void);
 extern void ColorIncrementManager_UpdateColorPart_m4FC691A40817EF0B9C0ECDA43543518E50F8EB6F (void);
@@ -1205,15 +1207,16 @@ extern void UIDisplayBehavior_DisplayScore_m35569B3D9103964AB3AED61077ED54BAAE82
 extern void UIDisplayBehavior_DisplayRetry_mCD1CB342F7256CE8AC714DBCC1137BFD76ECBC2E (void);
 extern void UIDisplayBehavior_DisplayHighScore_m8A2765F80CFBCD3DFC8A3D37D4F62DEC147F527E (void);
 extern void UIDisplayBehavior_UpdateHighScore_mE23A603A5C23AB182FD25408C4ED11983CDC57D6 (void);
+extern void UIDisplayBehavior_DisplayCoinSystem_m2A4F30F8ECBCD908D9F2C10B8C95D3F79E376EFD (void);
 extern void UIDisplayBehavior_ShowStartMessage_m1D05642AC72D13C5F036BF394DB514A6B8EF209D (void);
 extern void UIDisplayBehavior_FadeOutMessage_m1C374280A6CD5D0BBAAB4F468F9306C5269B97DE (void);
 extern void UIDisplayBehavior__ctor_m924A3DB76EEAE1D85838B21D03F17864A39CC4BB (void);
-extern void U3CFadeOutMessageU3Ed__14__ctor_mDA8F4CCD605D11D4FE3E69A58F2B8F4C40A497FD (void);
-extern void U3CFadeOutMessageU3Ed__14_System_IDisposable_Dispose_m1814E7FA50E8A626AFE2D93D64443F5031DC32D4 (void);
-extern void U3CFadeOutMessageU3Ed__14_MoveNext_m27E4889265EF4A5C9147923B77F1CB4745B4B4D9 (void);
-extern void U3CFadeOutMessageU3Ed__14_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m00460810F8454CCC063ABCDC6D377F3C6C3FC149 (void);
-extern void U3CFadeOutMessageU3Ed__14_System_Collections_IEnumerator_Reset_mCA398D8B24F6111F4B5231D2F44718CB49D34258 (void);
-extern void U3CFadeOutMessageU3Ed__14_System_Collections_IEnumerator_get_Current_m852156C064E41D7F6A64C8955112081E00576698 (void);
+extern void U3CFadeOutMessageU3Ed__15__ctor_m3FEA06453CF710B81A6DFD0494D1CB8E78006C59 (void);
+extern void U3CFadeOutMessageU3Ed__15_System_IDisposable_Dispose_mFBB4E385DAF4EC3873F9F51B38239785A7A87621 (void);
+extern void U3CFadeOutMessageU3Ed__15_MoveNext_m302DF0D2EDAF8192232F5EAFE66557DFFDA677BB (void);
+extern void U3CFadeOutMessageU3Ed__15_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mF2C78D33FC4A0B713ACD134BDBE2B2A2FFFBA610 (void);
+extern void U3CFadeOutMessageU3Ed__15_System_Collections_IEnumerator_Reset_m4CC524A049E929E98BFA254C5265FF2E6729EDC2 (void);
+extern void U3CFadeOutMessageU3Ed__15_System_Collections_IEnumerator_get_Current_m3BAC22BF8D4B76DD58E7C3E522168BE7D692799D (void);
 extern void SpawnEffect_Start_m07241114876D469E2C6C93AA6E2A33D9D7ED6776 (void);
 extern void SpawnEffect_Update_mAE49964994B77657A3E847FD62F48C5617817F9F (void);
 extern void SpawnEffect__ctor_m8E4F61228DBAA92E0DBFD6CD8C0AEAB0C072C2FB (void);
@@ -1696,7 +1699,7 @@ extern void Physics_SetOrientationOnPath_mF7B4534D20EAC6F567A637C1F2B1FCE7A488D5
 extern void Physics_HasRigidbody2D_m6533193511306798987366A41DAC0673B8C93A74 (void);
 extern void Physics_HasRigidbody_m2C14C105800EDA31ABA37309DB2A32034FEB11B4 (void);
 extern void Physics_CreateDOTweenPathTween_mFF1665C952DD8B4444A221F886BA11DE795B3FBD (void);
-static Il2CppMethodPointer s_methodPointers[1700] = 
+static Il2CppMethodPointer s_methodPointers[1703] = 
 {
 	Following_Start_m8DAB4EBBCA79FB328F1B1349132755A768CA35C7,
 	Following_Update_m243F944258344ABD8BB41F2A5F68C6851AEB2605,
@@ -2822,6 +2825,7 @@ static Il2CppMethodPointer s_methodPointers[1700] =
 	AudioBehavior_PlaySoundPerfectStack_m3A92CC37594C098DDF607F56B118A749D9229846,
 	AudioBehavior_PlaySoundGrowBlock_m026F3A08437F739577D84738001CDC8F505CC1A3,
 	AudioBehavior_PlaySoundHighScore_m7953B7D5D1C52DB664D9A0B7E960C9B9B49BC3F3,
+	AudioBehavior_PlayCoinAdd_m76D0BA9786EEEFA745A485C32F9A2102D3B5DD76,
 	AudioBehavior__ctor_mEDDA32360FD0C84141A0198B96E6C0EC73F63114,
 	BlockBehavior_get_MustMoveOnXAxis_m77B9207DA04A236C7CBB4C2932BC17FABC61774C,
 	BlockBehavior_get_Color_m84250E0816CE03C61A0E5C8AAD5479561E17C02B,
@@ -2845,7 +2849,8 @@ static Il2CppMethodPointer s_methodPointers[1700] =
 	BlockBehavior_CalculateNewSpeed_m81CA0A2D9EADE63DEC98C30028C50FA92685DA07,
 	BlockBehavior__ctor_mE2085521478EE9214FED7F4838CD78052146AADC,
 	BlockBehavior__cctor_m1917D02FAC853B430144586FFEE919FFFD9759AE,
-	CoinSystem_CollectCoin_m67EFE1AA2C5957EEFA221C6BE0B7782120B8BE66,
+	CoinSystem_Start_m1E1E87A571602BF33CB8D7950B333E785779186D,
+	CoinSystem_CollectCoin_m50DCEC335076850263D04D2776B8EA6842972E58,
 	CoinSystem__ctor_m91E7A20F6037BCC110349B4621A04F70C91DD24D,
 	ColorIncrementManager_NewColorFromOther_mD2C17F6DAD03CCDC18F00A374AC2799FC5FA2E47,
 	ColorIncrementManager_UpdateColorPart_m4FC691A40817EF0B9C0ECDA43543518E50F8EB6F,
@@ -2891,15 +2896,16 @@ static Il2CppMethodPointer s_methodPointers[1700] =
 	UIDisplayBehavior_DisplayRetry_mCD1CB342F7256CE8AC714DBCC1137BFD76ECBC2E,
 	UIDisplayBehavior_DisplayHighScore_m8A2765F80CFBCD3DFC8A3D37D4F62DEC147F527E,
 	UIDisplayBehavior_UpdateHighScore_mE23A603A5C23AB182FD25408C4ED11983CDC57D6,
+	UIDisplayBehavior_DisplayCoinSystem_m2A4F30F8ECBCD908D9F2C10B8C95D3F79E376EFD,
 	UIDisplayBehavior_ShowStartMessage_m1D05642AC72D13C5F036BF394DB514A6B8EF209D,
 	UIDisplayBehavior_FadeOutMessage_m1C374280A6CD5D0BBAAB4F468F9306C5269B97DE,
 	UIDisplayBehavior__ctor_m924A3DB76EEAE1D85838B21D03F17864A39CC4BB,
-	U3CFadeOutMessageU3Ed__14__ctor_mDA8F4CCD605D11D4FE3E69A58F2B8F4C40A497FD,
-	U3CFadeOutMessageU3Ed__14_System_IDisposable_Dispose_m1814E7FA50E8A626AFE2D93D64443F5031DC32D4,
-	U3CFadeOutMessageU3Ed__14_MoveNext_m27E4889265EF4A5C9147923B77F1CB4745B4B4D9,
-	U3CFadeOutMessageU3Ed__14_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m00460810F8454CCC063ABCDC6D377F3C6C3FC149,
-	U3CFadeOutMessageU3Ed__14_System_Collections_IEnumerator_Reset_mCA398D8B24F6111F4B5231D2F44718CB49D34258,
-	U3CFadeOutMessageU3Ed__14_System_Collections_IEnumerator_get_Current_m852156C064E41D7F6A64C8955112081E00576698,
+	U3CFadeOutMessageU3Ed__15__ctor_m3FEA06453CF710B81A6DFD0494D1CB8E78006C59,
+	U3CFadeOutMessageU3Ed__15_System_IDisposable_Dispose_mFBB4E385DAF4EC3873F9F51B38239785A7A87621,
+	U3CFadeOutMessageU3Ed__15_MoveNext_m302DF0D2EDAF8192232F5EAFE66557DFFDA677BB,
+	U3CFadeOutMessageU3Ed__15_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_mF2C78D33FC4A0B713ACD134BDBE2B2A2FFFBA610,
+	U3CFadeOutMessageU3Ed__15_System_Collections_IEnumerator_Reset_m4CC524A049E929E98BFA254C5265FF2E6729EDC2,
+	U3CFadeOutMessageU3Ed__15_System_Collections_IEnumerator_get_Current_m3BAC22BF8D4B76DD58E7C3E522168BE7D692799D,
 	SpawnEffect_Start_m07241114876D469E2C6C93AA6E2A33D9D7ED6776,
 	SpawnEffect_Update_mAE49964994B77657A3E847FD62F48C5617817F9F,
 	SpawnEffect__ctor_m8E4F61228DBAA92E0DBFD6CD8C0AEAB0C072C2FB,
@@ -3399,7 +3405,7 @@ static Il2CppMethodPointer s_methodPointers[1700] =
 	Physics_HasRigidbody_m2C14C105800EDA31ABA37309DB2A32034FEB11B4,
 	Physics_CreateDOTweenPathTween_mFF1665C952DD8B4444A221F886BA11DE795B3FBD,
 };
-static const int32_t s_InvokerIndices[1700] = 
+static const int32_t s_InvokerIndices[1703] = 
 {
 	4677,
 	4677,
@@ -4526,6 +4532,7 @@ static const int32_t s_InvokerIndices[1700] =
 	4677,
 	4677,
 	4677,
+	4677,
 	4498,
 	4500,
 	3722,
@@ -4549,6 +4556,7 @@ static const int32_t s_InvokerIndices[1700] =
 	4677,
 	7006,
 	4677,
+	3775,
 	4677,
 	1403,
 	5133,
@@ -4592,6 +4600,7 @@ static const int32_t s_InvokerIndices[1700] =
 	4677,
 	3775,
 	4677,
+	3775,
 	3775,
 	3775,
 	3775,
@@ -5105,10 +5114,10 @@ static const int32_t s_InvokerIndices[1700] =
 static const Il2CppTokenRangePair s_rgctxIndices[5] = 
 {
 	{ 0x02000080, { 0, 17 } },
-	{ 0x0600055B, { 17, 2 } },
-	{ 0x0600055C, { 19, 2 } },
-	{ 0x06000569, { 21, 3 } },
-	{ 0x0600056B, { 24, 1 } },
+	{ 0x0600055E, { 17, 2 } },
+	{ 0x0600055F, { 19, 2 } },
+	{ 0x0600056C, { 21, 3 } },
+	{ 0x0600056E, { 24, 1 } },
 };
 extern const uint32_t g_rgctx_LeanClassPool_1_tF1A20490D85E5B8B776773FEAAA412CB209A4352;
 extern const uint32_t g_rgctx_List_1_tF4C7BCBF6879FFB2E0FEE4C083694F879046409E;
@@ -5167,7 +5176,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	1700,
+	1703,
 	s_methodPointers,
 	0,
 	NULL,

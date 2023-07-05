@@ -17,14 +17,16 @@ public class GameManager : MonoBehaviour {
 
     private int perfectStackCount = 0;
     private int highScore = 0;
+    private int coinCount = 0;
     private bool soundAchievement = false;
     private int score = 0;
 
     void Start() {
 
         highScore = PlayerPrefs.GetInt("HighScore", 0);
-
+        coinCount = PlayerPrefs.GetInt("Coins", 0);
         // Mostrar el puntaje más alto en la interfaz de usuario
+        uiDisplayBehavior.DisplayCoinSystem(coinCount);
         uiDisplayBehavior.DisplayHighScore(highScore);
 
         uiDisplayBehavior.DisplayTitle();
@@ -66,7 +68,6 @@ public class GameManager : MonoBehaviour {
 
         uiDisplayBehavior.DisplayRetry();
         ScoreManager.SaveHighScore(towerBehavior.level);
-        coinSystem.CollectCoin(towerBehavior.level);
         Handheld.Vibrate();
         score=0;
 
@@ -94,10 +95,11 @@ public class GameManager : MonoBehaviour {
         score++;
 
         // Verifica si el puntaje es un múltiplo de 20
-        if (score % 5 == 0)
+        if (score % 10 == 0)
         {
             // Llama a la función CollectCoin del CoinSystem para recolectar una moneda
             coinSystem.CollectCoin(towerBehavior.level);
+            audioBehavior.PlayCoinAdd();
         }
         uiDisplayBehavior.DisplayScore(towerBehavior.level);
         if (towerBehavior.level > highScore)
@@ -157,6 +159,7 @@ public class GameManager : MonoBehaviour {
         towerBehavior.IncrementLevel();
         GenerateNextBlock();
         ScoreManager.SaveHighScore(towerBehavior.level);
+        
     }
 
 

@@ -17,7 +17,7 @@ public class CoinSystem : MonoBehaviour
         coinCount++;
 
         // Actualiza el texto y la imagen de la moneda en pantalla
-        coinText.text = "Coins: " + coinCount.ToString();
+        coinText.text = "" + coinCount.ToString();
         PlayerPrefs.SetInt("Coins", coinCount);
         PlayerPrefs.Save();
         // Asigna la imagen de la moneda correspondiente aquí

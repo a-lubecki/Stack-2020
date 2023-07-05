@@ -8584,7 +8584,7 @@ struct TypeConstructorVisitor_tFC61250F68BF43FE889F5B1002CBFF90648E9C7F  : publi
 {
 	RuntimeObject* ___TypeConstructor;
 };
-struct U3CFadeOutMessageU3Ed__14_t0AE1038EC7EF7B246002014E893FE2C41016362C  : public RuntimeObject
+struct U3CFadeOutMessageU3Ed__15_tE7A20FD282E12A583DE4C984562A5C8A02AFD7D1  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -30926,6 +30926,7 @@ struct AudioBehavior_t9EA6971CADEF0FEDF1304CF82AD47079AE2957E7  : public MonoBeh
 	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___clipWood;
 	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___clipGuitarXylophone;
 	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___clipAchievement;
+	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___clipCoinAdd;
 	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___audioSourceDefault;
 	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___audioSourceBadStack;
 	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___audioSourcePerfectStack;
@@ -31099,6 +31100,7 @@ struct GameManager_tFE129A0017AF5BBD30FDCD4403B9CCEAE064C6B6  : public MonoBehav
 	CoinSystem_t395C61906FB3167B363B7553CF25CC3E07F805B7* ___coinSystem;
 	int32_t ___perfectStackCount;
 	int32_t ___highScore;
+	int32_t ___coinCount;
 	bool ___soundAchievement;
 	int32_t ___score;
 };
@@ -44563,7 +44565,7 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize3522 = { sizeof(MainCameraBe
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3523;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize3523 = { sizeof(TowerBehavior_tA083D0B5D931B38016D523EF2C6E0A084000D7BC), -1, sizeof(TowerBehavior_tA083D0B5D931B38016D523EF2C6E0A084000D7BC_StaticFields), 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3524;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize3524 = { sizeof(U3CFadeOutMessageU3Ed__14_t0AE1038EC7EF7B246002014E893FE2C41016362C), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize3524 = { sizeof(U3CFadeOutMessageU3Ed__15_tE7A20FD282E12A583DE4C984562A5C8A02AFD7D1), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3525;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize3525 = { sizeof(UIDisplayBehavior_t63E8558BD35E91ED550E174A774A81D5D3339DAA), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3526;

@@ -62,12 +62,18 @@ public class UIDisplayBehavior : MonoBehaviour {
         textHighScore.text =  "High Score: " + score.ToString();
     }
 
+    public void DisplayCoinSystem(int highScore)
+    {
+        coinSystem.gameObject.SetActive(true);
+        coinSystem.text = "  " + highScore.ToString();
+    }
+
     public void ShowStartMessage(int currentHighScore)
     {
 
             // Mostrar el mensaje
             messageText.gameObject.SetActive(true);
-            messageText.text = "¡Record Superado!";
+            messageText.text = "¡New Record!";
 
             // Desvanecer el mensaje después de unos segundos
             StartCoroutine(FadeOutMessage());

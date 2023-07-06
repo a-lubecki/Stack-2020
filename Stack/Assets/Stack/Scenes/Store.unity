@@ -7627,9 +7627,9 @@ MonoBehaviour:
   oldMaterialToUse: {fileID: 0}
   newMaterialToUse: {fileID: 0}
   priceSkin: {fileID: 841009812}
-  purchasedSkins: 0101010101010101010101
   rendMats2:
     price: 0
+    purchasedSkins: 01010101010101010101
   newMaterials:
   - {fileID: 2100000, guid: a2990ab2e523747dd9cf3fbeeb7394ee, type: 2}
   - {fileID: 2100000, guid: 0799c0fca43b43549b92dbbb57355b63, type: 2}

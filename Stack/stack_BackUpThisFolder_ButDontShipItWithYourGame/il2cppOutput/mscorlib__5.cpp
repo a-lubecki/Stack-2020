@@ -24430,13 +24430,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* Delegate_get_Target_m6E203F111
 		return L_0;
 	}
 }
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR intptr_t Delegate_GetNativeFunctionPointer_m33154447FC68C796BC39378ED738569E7DF8D1B4 (Delegate_t* __this, const RuntimeMethod* method) 
-{
-	{
-		intptr_t L_0 = __this->___method_ptr;
-		return L_0;
-	}
-}
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Delegate_t* Delegate_CreateDelegate_internal_mF88D8D15C782C96809FFBB3CEC466F1D005E99C2 (Type_t* ___0_type, RuntimeObject* ___1_target, MethodInfo_t* ___2_info, bool ___3_throwOnBindFailure, const RuntimeMethod* method) 
 {
 	typedef Delegate_t* (*Delegate_CreateDelegate_internal_mF88D8D15C782C96809FFBB3CEC466F1D005E99C2_ftn) (Type_t*, RuntimeObject*, MethodInfo_t*, bool);

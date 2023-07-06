@@ -812,7 +812,10 @@ MonoBehaviour:
   tower: {fileID: 1446722318}
   oldMaterialToUse: {fileID: 0}
   newMaterialToUse: {fileID: 0}
-  purchasedSkins: 0101010101010101010101
+  priceSkin: {fileID: 0}
+  rendMats2:
+    price: 0
+    purchasedSkins: 0000000000000000000000
   newMaterials:
   - {fileID: 2100000, guid: a2990ab2e523747dd9cf3fbeeb7394ee, type: 2}
   - {fileID: 2100000, guid: 0799c0fca43b43549b92dbbb57355b63, type: 2}
@@ -837,7 +840,6 @@ MonoBehaviour:
   - {fileID: 2100000, guid: ee47644675828514c8b999edaa99ee59, type: 2}
   - {fileID: 2100000, guid: 815726b91e0e2d34a84b7ddc790e5b86, type: 2}
   - {fileID: 2100000, guid: ab4269e12763c2845868256b389e5b9b, type: 2}
-  - {fileID: 2100000, guid: bacc7ee8fd0869d45be470f049e53d8b, type: 2}
 --- !u!4 &173726063
 Transform:
   m_ObjectHideFlags: 0
@@ -5952,6 +5954,7 @@ MonoBehaviour:
   messageText: {fileID: 529870868}
   coinSystem: {fileID: 1293290141}
   buttonGameObject: {fileID: 1719589726}
+  priceSkin: {fileID: 0}
 --- !u!1 &453466688
 GameObject:
   m_ObjectHideFlags: 0
@@ -7224,7 +7227,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.5
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -7237,7 +7240,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1197341108}
+  m_TargetGraphic: {fileID: 936705789}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -7437,7 +7440,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -156, y: 229.00003}
+  m_AnchoredPosition: {x: -156, y: 229.00006}
   m_SizeDelta: {x: 100, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1293290141

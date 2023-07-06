@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     private int score = 0;
     private int matnum;
     void Start() {
-
+        //PlayerPrefs.DeleteAll();
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         coinCount = PlayerPrefs.GetInt("Coins", 0);
         skinN = PlayerPrefs.GetInt("Skin", 0);
@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
-        
+       
         shop.PurchaseBase(skinN);
         if (Input.GetMouseButtonDown(0))
         {

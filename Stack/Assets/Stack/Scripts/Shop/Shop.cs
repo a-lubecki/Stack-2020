@@ -29,7 +29,7 @@ public class Shop : MonoBehaviour
         
         
         public int price;
-        public bool[] purchasedSkins = { false,false,false,false,false};
+        public bool[] purchasedSkins = { false,false,false,false,false,false,false,false,false,false,false};
 
         public void setPrice(int price)
         {
@@ -56,14 +56,51 @@ public class Shop : MonoBehaviour
     private int matnum = 0 ;
     private bool isPurchased = false; // Indica si la base ha sido comprada
     private int skinN;
+
     private void Start()
     {
-        
+         
         //baseMeshRenderer.enabled = false;
          rendMats = baseMeshRenderer.materials;
       
     }
+    public void skinPurchase()
+    {
+        if (PlayerPrefs.GetInt("PurchasedSkin1") == 1)
+            {
+            print("Skin comprada almacenado");
+        //    for (int i = 0; i < rendmats2.purchasedskins.length; i++)
+        //    {
+        //        string key = "purchasedskin" + i.tostring();
+        //        int value = playerprefs.getint(key);
 
+        //        if (value == 1)
+        //        {
+
+        //            // realizar las acciones correspondientes para el elemento comprado
+        //            // por ejemplo, aplicar el material al objeto base
+        //            basemeshrenderer.materials = rendmats;
+        //            basemeshrenderer2.materials = rendmats;
+
+        //            // ...
+        //        }
+        //        else
+        //        {
+        //            //coincount -= priceskin;
+        //            basemeshrenderer.materials = rendmats;
+        //            basemeshrenderer2.materials = rendmats;
+        //        }
+        //    }
+
+
+        }
+        
+        else
+         {
+            print("Skin no comprada");
+        }
+
+    }
 
     public void PurchaseBase(int matnum2)
     {
@@ -72,19 +109,12 @@ public class Shop : MonoBehaviour
         print("Monedas actuales:"+coinCount);
         // Calcular el precio de la skin usando el valor de matnum
         int priceSkin = skinN * 10;
-
-        if (PlayerPrefs.GetInt("PurchasedSkin1") == 1)
+        
+        if (priceSkin <= coinCount || rendMats2.purchasedSkins[skinN] == false)
         {
-
-            baseMeshRenderer.materials = rendMats;
-            baseMeshRenderer2.materials = rendMats;
-
-        }
-
-        if (priceSkin <= coinCount && rendMats2.purchasedSkins[1] == false)
-        {
-            coinCount -= priceSkin;
-            rendMats2.purchasedSkins[1] = true;
+            print("no. skin: "+skinN);
+            
+            rendMats2.purchasedSkins[skinN] = true;
             // Guardar la nueva cantidad de monedas en memoria
             PlayerPrefs.SetInt("Coins", coinCount);
             print("Comprada skin:"+matnum2);
@@ -92,8 +122,19 @@ public class Shop : MonoBehaviour
             baseMeshRenderer.materials = rendMats;
             baseMeshRenderer2.materials = rendMats;
 
+
+            
+            
+
             skinN=matnum2;
-            PlayerPrefs.SetInt("PurchasedSkin1", 1);
+            for (int i = 0; i < rendMats2.purchasedSkins.Length; i++)
+            {
+                
+                string key = "PurchasedSkin" + i.ToString();
+                int value = rendMats2.purchasedSkins[i] ? 1 : 0;
+                PlayerPrefs.SetInt(key, value);
+             
+            }
             PlayerPrefs.SetInt("Skin", skinN);
             PlayerPrefs.Save();
         }
@@ -124,6 +165,7 @@ public class Shop : MonoBehaviour
         //    // ...
         //}
     }
+
 
     
 

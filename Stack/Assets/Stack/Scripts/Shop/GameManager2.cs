@@ -42,6 +42,7 @@ public class GameManager2 : MonoBehaviour {
             // Verificar si la posición del toque está en la parte inferior de la pantalla
             if (touchPosition.y <= Screen.height * 0.35f)
             {
+
                 priceSkin=matnum*10;
                 uiDisplayBehavior.DisplayPriceSkin(priceSkin);
                 matnum++;

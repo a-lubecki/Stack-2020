@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
 
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         coinCount = PlayerPrefs.GetInt("Coins", 0);
-       
+        skinN = PlayerPrefs.GetInt("Skin", 0);
         // Mostrar el puntaje más alto en la interfaz de usuario
         uiDisplayBehavior.DisplayCoinSystem(coinCount);
         uiDisplayBehavior.DisplayHighScore(highScore);
@@ -36,8 +36,7 @@ public class GameManager : MonoBehaviour {
     }
 
     void Update() {
-        skinN = PlayerPrefs.GetInt("Skin", 0);
-        matnum = UnityEngine.Random.Range(0, 5);
+        
         shop.PurchaseBase(skinN);
         if (Input.GetMouseButtonDown(0))
         {
@@ -113,7 +112,7 @@ public class GameManager : MonoBehaviour {
         score++;
 
         // Verifica si el puntaje es un múltiplo de 20
-        if (score % 20 == 0)
+        if (score %1 == 0)
         {
             // Llama a la función CollectCoin del CoinSystem para recolectar una moneda
             coinSystem.CollectCoin(towerBehavior.level);

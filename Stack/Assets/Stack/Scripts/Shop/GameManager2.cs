@@ -4,7 +4,6 @@ using System.Collections;
 public class GameManager2 : MonoBehaviour {
 
 
-    private static readonly int MIN_PERFECT_STACK_COUNT_TO_GROW = 5;
 
 
     [SerializeField] private bool isPlaying;
@@ -18,33 +17,44 @@ public class GameManager2 : MonoBehaviour {
 
     private int perfectStackCount = 0;
     private int highScore = 0;
-    private int coinCount = 0;
+    private int coinCount;
     private bool soundAchievement = false;
     private int score = 0;
-    public int matnum;
+    public int matnum=0;
+    public int priceSkin;
     void Start() {
 
-        coinCount = PlayerPrefs.GetInt("Coins", 0);
+        coinCount=PlayerPrefs.GetInt("Coins", 0) ;
         // Mostrar el puntaje más alto en la interfaz de usuario
         uiDisplayBehavior.DisplayCoinSystem(coinCount);
-       
+        
         uiDisplayBehavior.DisplayTitle();
     }
 
     void Update() {
 
-
+        
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 touchPosition = Input.mousePosition;
 
+            Vector3 touchPosition = Input.mousePosition;
+            
             // Verificar si la posición del toque está en la parte inferior de la pantalla
             if (touchPosition.y <= Screen.height * 0.35f)
             {
-                matnum = UnityEngine.Random.Range(0, 10);
+                priceSkin=matnum*10;
+                uiDisplayBehavior.DisplayPriceSkin(priceSkin);
+                matnum++;
+
+                // Reiniciar el contador si llega a 10
+                if (matnum > 10)
+                {
+                    matnum = 0;
+                }
+               // matnum = UnityEngine.Random.Range(0, 10);
                 shop.PurchaseBase(matnum);
             }
-           
+            uiDisplayBehavior.DisplayCoinSystem(coinCount);
         //    if (isPlaying)
         //    {
         //        TryStackCurrentBlock();
@@ -68,113 +78,6 @@ public class GameManager2 : MonoBehaviour {
 
     }
 
-    private void StartPlaying() {
-
-
-        audioBehavior.PlaySoundStart();
-    }
-
-    private void StopPlaying() {
-
-        isPlaying = false;
-        isGameOver = true;
-
-
-        uiDisplayBehavior.DisplayRetry();
-        ScoreManager.SaveHighScore(towerBehavior.level);
-        Handheld.Vibrate();
-        score=0;
-
-    }
-
-    private void ResetTower() {
-
-        isGameOver = false;
-
-        towerBehavior.ResetTower();
-
-        mainCameraBehavior.ResetPosition();
-
-        uiDisplayBehavior.DisplayTitle();
-
-        audioBehavior.PlaySoundRetry();
-    }
-
-    private void GenerateNextBlock() {
-
-        towerBehavior.GenerateNextBlock();
-
-        //make the camera follow the new block
-        mainCameraBehavior.IncrementLevel(towerBehavior.level);
-        score++;
-
-        // Verifica si el puntaje es un múltiplo de 20
-        if (score % 20 == 0)
-        {
-            // Llama a la función CollectCoin del CoinSystem para recolectar una moneda
-            coinSystem.CollectCoin(towerBehavior.level);
-            audioBehavior.PlayCoinAdd();
-        }
-        uiDisplayBehavior.DisplayScore(towerBehavior.level);
-        if (towerBehavior.level > highScore)
-        {
-            // Actualizar el puntaje más alto
-            highScore = towerBehavior.level;
-
-            // Guardar el nuevo puntaje más alto en PlayerPrefs
-            PlayerPrefs.SetInt("HighScore", highScore);
-            PlayerPrefs.Save();
-            
-            if (!soundAchievement )
-            {
-                audioBehavior.PlaySoundHighScore();
-
-                uiDisplayBehavior.ShowStartMessage(highScore);
-                soundAchievement=true;
-            }
-            
-            
-        }
-        uiDisplayBehavior.UpdateHighScore(highScore);
-    }
-
-    private void TryStackCurrentBlock() {
-
-        var hasStacked = towerBehavior.StackCurrentBlock();
-
-        if (!hasStacked) {
-            StopPlaying();
-            return;
-        }
-
-        if (towerBehavior.hasPerfectStackPosition) {
-
-            perfectStackCount++;
-            audioBehavior.PlaySoundPerfectStack(perfectStackCount);
-
-            //grow the top block of the tower to reward the player if he stacked perfectly several blocks
-            if (perfectStackCount > MIN_PERFECT_STACK_COUNT_TO_GROW) {
-
-                bool hasGrown = towerBehavior.GrowTopBlock();
-                if (hasGrown) {
-                    audioBehavior.PlaySoundGrowBlock();
-
-                }
-            }
-
-
-
-        } else {
-
-            perfectStackCount = 0;
-            audioBehavior.PlaySoundBadStack();
-        }
-
-        towerBehavior.IncrementLevel();
-        GenerateNextBlock();
-        ScoreManager.SaveHighScore(towerBehavior.level);
-        
-    }
 
 
 }

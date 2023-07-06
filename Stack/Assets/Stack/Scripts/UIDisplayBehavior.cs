@@ -13,7 +13,7 @@ public class UIDisplayBehavior : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI messageText;
     [SerializeField] private TextMeshProUGUI coinSystem;
     [SerializeField] private GameObject buttonGameObject;
-
+    [SerializeField] private TextMeshProUGUI priceSkin;
 
     private bool hasShownStartMessage = false;
     private int previousHighScore = 0;
@@ -70,6 +70,12 @@ public class UIDisplayBehavior : MonoBehaviour {
     {
         coinSystem.gameObject.SetActive(true);
         coinSystem.text = "  " + highScore.ToString();
+    }
+
+    public void DisplayPriceSkin(int price)
+    {
+
+        priceSkin.text="Price:"+price.ToString();
     }
 
     public void ShowStartMessage(int currentHighScore)

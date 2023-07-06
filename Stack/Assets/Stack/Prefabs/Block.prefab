@@ -164,6 +164,7 @@ MonoBehaviour:
   mustMoveOnPositiveDirection: 0
   isMoving: 0
   speed: 10
+  shop: {fileID: 0}
 --- !u!114 &2724793833807062105
 MonoBehaviour:
   m_ObjectHideFlags: 0

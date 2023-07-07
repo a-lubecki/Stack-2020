@@ -8,7 +8,7 @@ public class GameManager2 : MonoBehaviour {
 
     [SerializeField] private bool isPlaying;
     [SerializeField] private bool isGameOver;
-    [SerializeField] private TowerBehavior towerBehavior;
+    [SerializeField] private TowerBehavior2 towerBehavior;
     [SerializeField] private MainCameraBehavior mainCameraBehavior;
     [SerializeField] private UIDisplayBehavior uiDisplayBehavior;
     [SerializeField] private AudioBehavior audioBehavior;
@@ -43,12 +43,12 @@ public class GameManager2 : MonoBehaviour {
             if (touchPosition.y <= Screen.height * 0.35f)
             {
 
-                priceSkin=matnum*10;
+                priceSkin=matnum*100;
                 uiDisplayBehavior.DisplayPriceSkin(priceSkin);
                 matnum++;
 
                 // Reiniciar el contador si llega a 10
-                if (matnum > 10)
+                if (matnum > 15)
                 {
                     matnum = 0;
                 }

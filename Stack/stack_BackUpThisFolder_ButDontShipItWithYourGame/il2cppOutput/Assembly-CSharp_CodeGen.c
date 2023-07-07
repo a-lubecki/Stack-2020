@@ -1238,6 +1238,19 @@ extern void MaterialData_setPrice_mB053F69E5AF1603FE221C0B4C370758237710C20 (voi
 extern void MaterialData_getPrice_m0DA8C2F7F2796C16B5BEEF0321F15700B299DEDB (void);
 extern void MaterialData__ctor_m3DD5F7DE3E2945476F8465A34EAB6181AB4B139F (void);
 extern void SkinData__ctor_m7CBCD8A9180C78AA557898E2EB796B0BB881C748 (void);
+extern void TowerBehavior2_get_level_mB20FEC9DAF14E0C739A264003C1D32210DE8D8B1 (void);
+extern void TowerBehavior2_set_level_m9151015A0CA3945E5D02AD7CE8D2F5ED3806FE2B (void);
+extern void TowerBehavior2_get_hasPerfectStackPosition_mEF3C61B29707C659CB0B2C9BD74A8B69A8A720B0 (void);
+extern void TowerBehavior2_set_hasPerfectStackPosition_m089072916CBC85B8405F4C12853E02CD2AB82069 (void);
+extern void TowerBehavior2_Start_m87B263B57160A31A113090EA726E2C5A28219CB7 (void);
+extern void TowerBehavior2_Update_m1B0BE2399ECA33CFFCE49BCBF5B4AF680047F092 (void);
+extern void TowerBehavior2_HasTopBlock_m099A179EAFF4DFDFCD294B5E0435C5FEAA153EFE (void);
+extern void TowerBehavior2_IncrementLevel_mF41A7872631F4F4F5361B66F7F9F15D350DBC77C (void);
+extern void TowerBehavior2_GenerateNextBlock_m800630D7CB56EDFEE4FD04B9FB74346D14ECD286 (void);
+extern void TowerBehavior2_StackCurrentBlock_mB03CFA13901F38E4917320F77274C67D222B9AFB (void);
+extern void TowerBehavior2_GrowTopBlock_m8FFD8163BFCFB4C8EBDD22C14A24058B33EFFB65 (void);
+extern void TowerBehavior2__ctor_m2CDC41C6DE8D57224B522FD5ABB48FD40201D01E (void);
+extern void TowerBehavior2__cctor_m498932B439484DA7CED963336C1A4DD805480860 (void);
 extern void TowerBehavior_get_level_mCC721A00107514CE7463D75D3411912C0B2CDB69 (void);
 extern void TowerBehavior_set_level_m9E07AE846896244A2228415582189045ACF7D83A (void);
 extern void TowerBehavior_get_hasPerfectStackPosition_mD9AF4E5B37ECBC5C05A9738C9E31BC9BCA6F1ED4 (void);
@@ -1749,7 +1762,7 @@ extern void Physics_SetOrientationOnPath_mF7B4534D20EAC6F567A637C1F2B1FCE7A488D5
 extern void Physics_HasRigidbody2D_m6533193511306798987366A41DAC0673B8C93A74 (void);
 extern void Physics_HasRigidbody_m2C14C105800EDA31ABA37309DB2A32034FEB11B4 (void);
 extern void Physics_CreateDOTweenPathTween_mFF1665C952DD8B4444A221F886BA11DE795B3FBD (void);
-static Il2CppMethodPointer s_methodPointers[1753] = 
+static Il2CppMethodPointer s_methodPointers[1766] = 
 {
 	Following_Start_m8DAB4EBBCA79FB328F1B1349132755A768CA35C7,
 	Following_Update_m243F944258344ABD8BB41F2A5F68C6851AEB2605,
@@ -2977,6 +2990,19 @@ static Il2CppMethodPointer s_methodPointers[1753] =
 	MaterialData_getPrice_m0DA8C2F7F2796C16B5BEEF0321F15700B299DEDB,
 	MaterialData__ctor_m3DD5F7DE3E2945476F8465A34EAB6181AB4B139F,
 	SkinData__ctor_m7CBCD8A9180C78AA557898E2EB796B0BB881C748,
+	TowerBehavior2_get_level_mB20FEC9DAF14E0C739A264003C1D32210DE8D8B1,
+	TowerBehavior2_set_level_m9151015A0CA3945E5D02AD7CE8D2F5ED3806FE2B,
+	TowerBehavior2_get_hasPerfectStackPosition_mEF3C61B29707C659CB0B2C9BD74A8B69A8A720B0,
+	TowerBehavior2_set_hasPerfectStackPosition_m089072916CBC85B8405F4C12853E02CD2AB82069,
+	TowerBehavior2_Start_m87B263B57160A31A113090EA726E2C5A28219CB7,
+	TowerBehavior2_Update_m1B0BE2399ECA33CFFCE49BCBF5B4AF680047F092,
+	TowerBehavior2_HasTopBlock_m099A179EAFF4DFDFCD294B5E0435C5FEAA153EFE,
+	TowerBehavior2_IncrementLevel_mF41A7872631F4F4F5361B66F7F9F15D350DBC77C,
+	TowerBehavior2_GenerateNextBlock_m800630D7CB56EDFEE4FD04B9FB74346D14ECD286,
+	TowerBehavior2_StackCurrentBlock_mB03CFA13901F38E4917320F77274C67D222B9AFB,
+	TowerBehavior2_GrowTopBlock_m8FFD8163BFCFB4C8EBDD22C14A24058B33EFFB65,
+	TowerBehavior2__ctor_m2CDC41C6DE8D57224B522FD5ABB48FD40201D01E,
+	TowerBehavior2__cctor_m498932B439484DA7CED963336C1A4DD805480860,
 	TowerBehavior_get_level_mCC721A00107514CE7463D75D3411912C0B2CDB69,
 	TowerBehavior_set_level_m9E07AE846896244A2228415582189045ACF7D83A,
 	TowerBehavior_get_hasPerfectStackPosition_mD9AF4E5B37ECBC5C05A9738C9E31BC9BCA6F1ED4,
@@ -3505,7 +3531,7 @@ static Il2CppMethodPointer s_methodPointers[1753] =
 	Physics_HasRigidbody_m2C14C105800EDA31ABA37309DB2A32034FEB11B4,
 	Physics_CreateDOTweenPathTween_mFF1665C952DD8B4444A221F886BA11DE795B3FBD,
 };
-static const int32_t s_InvokerIndices[1753] = 
+static const int32_t s_InvokerIndices[1766] = 
 {
 	4678,
 	4678,
@@ -4738,6 +4764,19 @@ static const int32_t s_InvokerIndices[1753] =
 	4499,
 	3720,
 	4678,
+	4678,
+	4499,
+	4678,
+	4678,
+	4499,
+	4499,
+	4678,
+	7008,
+	4551,
+	3776,
+	4499,
+	3720,
+	4678,
 	4499,
 	4678,
 	4678,
@@ -5263,11 +5302,11 @@ static const int32_t s_InvokerIndices[1753] =
 };
 static const Il2CppTokenRangePair s_rgctxIndices[5] = 
 {
-	{ 0x02000088, { 0, 17 } },
-	{ 0x06000590, { 17, 2 } },
-	{ 0x06000591, { 19, 2 } },
-	{ 0x0600059E, { 21, 3 } },
-	{ 0x060005A0, { 24, 1 } },
+	{ 0x02000089, { 0, 17 } },
+	{ 0x0600059D, { 17, 2 } },
+	{ 0x0600059E, { 19, 2 } },
+	{ 0x060005AB, { 21, 3 } },
+	{ 0x060005AD, { 24, 1 } },
 };
 extern const uint32_t g_rgctx_LeanClassPool_1_tF1A20490D85E5B8B776773FEAAA412CB209A4352;
 extern const uint32_t g_rgctx_List_1_tF4C7BCBF6879FFB2E0FEE4C083694F879046409E;
@@ -5326,7 +5365,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	1753,
+	1766,
 	s_methodPointers,
 	0,
 	NULL,

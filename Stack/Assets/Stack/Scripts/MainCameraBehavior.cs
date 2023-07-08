@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using DG.Tweening;
 using System.Collections.Generic;
+using UnityEngine.Video;
 
 
 public class MainCameraBehavior : MonoBehaviour {
@@ -46,7 +47,7 @@ public class MainCameraBehavior : MonoBehaviour {
 
         //animat color change based on the current color
         imageBackground.DOColor(colorIncrementManager.NewColorFromOther(imageBackground.color, changePercentage), 0.1f);
-      
+
         imageBackground2.DOColor(colorIncrementManager.NewColorFromOther(imageBackground.color, changePercentage), 0.1f);
         imageBackground3.DOColor(colorIncrementManager.NewColorFromOther(imageBackground.color, changePercentage), 0.1f);
         imageBackground4.DOColor(colorIncrementManager.NewColorFromOther(imageBackground.color, changePercentage), 0.1f);
@@ -119,15 +120,7 @@ public class MainCameraBehavior : MonoBehaviour {
         }
     }
 
-    private Texture2D LoadTextureFromFile(string filePath)
-    {
-        // Carga la imagen desde el archivo
-        byte[] fileData = System.IO.File.ReadAllBytes(filePath);
-        Texture2D texture = new Texture2D(2, 2);
-        texture.LoadImage(fileData);
-
-        return texture;
-    }
+ 
     // Ejemplo de uso
     private void Update()
     {

@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
     private bool soundAchievement = false;
     private int score = 0;
     private int matnum;
+
     void Start() {
         //PlayerPrefs.DeleteAll();
         highScore = PlayerPrefs.GetInt("HighScore", 0);

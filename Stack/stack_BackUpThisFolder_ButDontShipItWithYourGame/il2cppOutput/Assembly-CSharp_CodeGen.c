@@ -1160,6 +1160,7 @@ extern void BlockBehavior_MoveOverOtherBlock_m0D42729567C212A90C7474AF08B16DE4E9
 extern void BlockBehavior_SplitWithOtherBlock_m982AD0929CFE3E9C35A3A89EAD3DDB9EA14A74DD (void);
 extern void BlockBehavior_Grow_m83D47C76996221AF2D2260AF09849BE7D31EACF3 (void);
 extern void BlockBehavior_CalculateNewSpeed_m81CA0A2D9EADE63DEC98C30028C50FA92685DA07 (void);
+extern void BlockBehavior_destroyedParts_mB92EBDAE42FD676D76224FE3573EE6C8C45512B1 (void);
 extern void BlockBehavior__ctor_mE2085521478EE9214FED7F4838CD78052146AADC (void);
 extern void BlockBehavior__cctor_m1917D02FAC853B430144586FFEE919FFFD9759AE (void);
 extern void CoinSystem_Start_m1E1E87A571602BF33CB8D7950B333E785779186D (void);
@@ -1188,13 +1189,21 @@ extern void MainCameraBehavior_ResetPosition_m8254F857E74E17F5C57667E22DBC264CB6
 extern void MainCameraBehavior_IncrementLevel_m10B1EC871ED8099DEDC124FBD5A88E7EC9643118 (void);
 extern void MainCameraBehavior_UpdateBackgroundColor_mA66505D683AD420B440F0F38D116C8E54A533B34 (void);
 extern void MainCameraBehavior_ChangeRandomImagePath_mC54599080628AEF191D60540523A85BBDEE8C2FF (void);
-extern void MainCameraBehavior_LoadTextureFromFile_mCB2A9C223D5B9C0D13E2700A3394F5518DD20C5F (void);
 extern void MainCameraBehavior_Update_mBE0B4D9FAE8A1FAF58BFEE02D29D610BF8648D19 (void);
 extern void MainCameraBehavior_CalculateTowerBounds_m52CCB80225204121A9AF1F5F6EE50CF504FE27B4 (void);
 extern void MainCameraBehavior_Start_mD5EFB8951369450967648CFEEB96862EE64808F0 (void);
 extern void MainCameraBehavior_RotateCameraX_mA996DE1AECAF8687C4D0870F20599314665629C6 (void);
 extern void MainCameraBehavior_ReturnToOriginalRotation_mEF2375B3249996C43C145395DDE4FF3FC4B7CCEC (void);
 extern void MainCameraBehavior__ctor_m540953E0054916920773E55D870D2BDD585051D1 (void);
+extern void Collisions_Start_m9C7CAB9B1D14199E440EA1A9117E840B7F4FC204 (void);
+extern void Collisions_OnCollisionEnter_m311D6737B7755E97C8A378325A74B59A1B0F45F8 (void);
+extern void Collisions__ctor_m20CACF2B57A4D92FCF986A5C0090BE71ACB3BD04 (void);
+extern void Explosion_Update_mAB50C3AC1611DB0676162E0D77F65DFDC08AD249 (void);
+extern void Explosion__ctor_mCE002252DB377B0FC990478B1F6EE4414E832403 (void);
+extern void Rocks_Start_m733749782B22A9CA296BEEFAABF9EE1E5BC5AC5F (void);
+extern void Rocks_Update_m7354EE0B25B146F845F224EC615C80186D3D4375 (void);
+extern void Rocks_checkBoundries_mDF02EAFA0C3A8732F96C51E8696F26740969C9BC (void);
+extern void Rocks__ctor_mA32C6829D884289537C4DBB6B80CEA3729DA6081 (void);
 extern void BlockBehavior2_get_MustMoveOnXAxis_mB71B154FDCE86416F1F7C3BD7BD3FD6EEFC0C602 (void);
 extern void BlockBehavior2_get_Color_m94098BF5470CD47B05F9C11ED430ABB15527145F (void);
 extern void BlockBehavior2_set_Color_m580FD07EEED6A82A574E48C328E142517D356404 (void);
@@ -1762,7 +1771,7 @@ extern void Physics_SetOrientationOnPath_mF7B4534D20EAC6F567A637C1F2B1FCE7A488D5
 extern void Physics_HasRigidbody2D_m6533193511306798987366A41DAC0673B8C93A74 (void);
 extern void Physics_HasRigidbody_m2C14C105800EDA31ABA37309DB2A32034FEB11B4 (void);
 extern void Physics_CreateDOTweenPathTween_mFF1665C952DD8B4444A221F886BA11DE795B3FBD (void);
-static Il2CppMethodPointer s_methodPointers[1766] = 
+static Il2CppMethodPointer s_methodPointers[1775] = 
 {
 	Following_Start_m8DAB4EBBCA79FB328F1B1349132755A768CA35C7,
 	Following_Update_m243F944258344ABD8BB41F2A5F68C6851AEB2605,
@@ -2912,6 +2921,7 @@ static Il2CppMethodPointer s_methodPointers[1766] =
 	BlockBehavior_SplitWithOtherBlock_m982AD0929CFE3E9C35A3A89EAD3DDB9EA14A74DD,
 	BlockBehavior_Grow_m83D47C76996221AF2D2260AF09849BE7D31EACF3,
 	BlockBehavior_CalculateNewSpeed_m81CA0A2D9EADE63DEC98C30028C50FA92685DA07,
+	BlockBehavior_destroyedParts_mB92EBDAE42FD676D76224FE3573EE6C8C45512B1,
 	BlockBehavior__ctor_mE2085521478EE9214FED7F4838CD78052146AADC,
 	BlockBehavior__cctor_m1917D02FAC853B430144586FFEE919FFFD9759AE,
 	CoinSystem_Start_m1E1E87A571602BF33CB8D7950B333E785779186D,
@@ -2940,13 +2950,21 @@ static Il2CppMethodPointer s_methodPointers[1766] =
 	MainCameraBehavior_IncrementLevel_m10B1EC871ED8099DEDC124FBD5A88E7EC9643118,
 	MainCameraBehavior_UpdateBackgroundColor_mA66505D683AD420B440F0F38D116C8E54A533B34,
 	MainCameraBehavior_ChangeRandomImagePath_mC54599080628AEF191D60540523A85BBDEE8C2FF,
-	MainCameraBehavior_LoadTextureFromFile_mCB2A9C223D5B9C0D13E2700A3394F5518DD20C5F,
 	MainCameraBehavior_Update_mBE0B4D9FAE8A1FAF58BFEE02D29D610BF8648D19,
 	MainCameraBehavior_CalculateTowerBounds_m52CCB80225204121A9AF1F5F6EE50CF504FE27B4,
 	MainCameraBehavior_Start_mD5EFB8951369450967648CFEEB96862EE64808F0,
 	MainCameraBehavior_RotateCameraX_mA996DE1AECAF8687C4D0870F20599314665629C6,
 	MainCameraBehavior_ReturnToOriginalRotation_mEF2375B3249996C43C145395DDE4FF3FC4B7CCEC,
 	MainCameraBehavior__ctor_m540953E0054916920773E55D870D2BDD585051D1,
+	Collisions_Start_m9C7CAB9B1D14199E440EA1A9117E840B7F4FC204,
+	Collisions_OnCollisionEnter_m311D6737B7755E97C8A378325A74B59A1B0F45F8,
+	Collisions__ctor_m20CACF2B57A4D92FCF986A5C0090BE71ACB3BD04,
+	Explosion_Update_mAB50C3AC1611DB0676162E0D77F65DFDC08AD249,
+	Explosion__ctor_mCE002252DB377B0FC990478B1F6EE4414E832403,
+	Rocks_Start_m733749782B22A9CA296BEEFAABF9EE1E5BC5AC5F,
+	Rocks_Update_m7354EE0B25B146F845F224EC615C80186D3D4375,
+	Rocks_checkBoundries_mDF02EAFA0C3A8732F96C51E8696F26740969C9BC,
+	Rocks__ctor_mA32C6829D884289537C4DBB6B80CEA3729DA6081,
 	BlockBehavior2_get_MustMoveOnXAxis_mB71B154FDCE86416F1F7C3BD7BD3FD6EEFC0C602,
 	BlockBehavior2_get_Color_m94098BF5470CD47B05F9C11ED430ABB15527145F,
 	BlockBehavior2_set_Color_m580FD07EEED6A82A574E48C328E142517D356404,
@@ -3531,7 +3549,7 @@ static Il2CppMethodPointer s_methodPointers[1766] =
 	Physics_HasRigidbody_m2C14C105800EDA31ABA37309DB2A32034FEB11B4,
 	Physics_CreateDOTweenPathTween_mFF1665C952DD8B4444A221F886BA11DE795B3FBD,
 };
-static const int32_t s_InvokerIndices[1766] = 
+static const int32_t s_InvokerIndices[1775] = 
 {
 	4678,
 	4678,
@@ -4681,6 +4699,7 @@ static const int32_t s_InvokerIndices[1766] =
 	2113,
 	828,
 	6776,
+	3802,
 	4678,
 	7008,
 	4678,
@@ -4709,11 +4728,19 @@ static const int32_t s_InvokerIndices[1766] =
 	3776,
 	3833,
 	4678,
-	3361,
 	4678,
 	4497,
 	4678,
 	3833,
+	4678,
+	4678,
+	4678,
+	3802,
+	4678,
+	4678,
+	4678,
+	4678,
+	4678,
 	4678,
 	4678,
 	4499,
@@ -5302,11 +5329,11 @@ static const int32_t s_InvokerIndices[1766] =
 };
 static const Il2CppTokenRangePair s_rgctxIndices[5] = 
 {
-	{ 0x02000089, { 0, 17 } },
-	{ 0x0600059D, { 17, 2 } },
-	{ 0x0600059E, { 19, 2 } },
-	{ 0x060005AB, { 21, 3 } },
-	{ 0x060005AD, { 24, 1 } },
+	{ 0x0200008C, { 0, 17 } },
+	{ 0x060005A6, { 17, 2 } },
+	{ 0x060005A7, { 19, 2 } },
+	{ 0x060005B4, { 21, 3 } },
+	{ 0x060005B6, { 24, 1 } },
 };
 extern const uint32_t g_rgctx_LeanClassPool_1_tF1A20490D85E5B8B776773FEAAA412CB209A4352;
 extern const uint32_t g_rgctx_List_1_tF4C7BCBF6879FFB2E0FEE4C083694F879046409E;
@@ -5365,7 +5392,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	1766,
+	1775,
 	s_methodPointers,
 	0,
 	NULL,

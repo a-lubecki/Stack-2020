@@ -11,7 +11,9 @@ public class TowerBehavior : MonoBehaviour {
 
 
     [SerializeField] private BlockBehavior baseBlockBehavior;
+    [SerializeField] private BlockBehavior baseBlockBehavior2;
     [SerializeField] private Transform trBlocks;
+    [SerializeField] private GameObject camaraRotation;
     [SerializeField] private LeanGameObjectPool poolBlocks;
 
     private BlockBehavior previousBlockBehavior;
@@ -71,6 +73,7 @@ public class TowerBehavior : MonoBehaviour {
         topBlockBehavior.Color = colorIncrementManager.NewColorFromOther(previousBlockBehavior.Color, 0.03f);
         topBlockBehavior.StartMoving();
         baseBlockBehavior.transform.Rotate(Vector3.up, 10f, Space.World);
+        
 
     }
 
@@ -108,6 +111,8 @@ public class TowerBehavior : MonoBehaviour {
 
             var cutBlockBehavior = goCutBlock.GetComponent<BlockBehavior>();
             cutBlockBehavior.Color = topBlockBehavior.Color;
+            topBlockBehavior.SplitWithOtherBlock(previousBlockBehavior, goCutBlock);
+
             cutBlockBehavior.SetAsKinematic(false);
         }
 

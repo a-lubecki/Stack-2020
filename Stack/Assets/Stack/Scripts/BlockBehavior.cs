@@ -1,7 +1,9 @@
 ﻿using System;
 using UnityEngine;
 using Lean.Pool;
-
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class BlockBehavior : MonoBehaviour {
 
@@ -16,14 +18,17 @@ public class BlockBehavior : MonoBehaviour {
     public static readonly int LAST_LEVEL_FOR_MIN_SPEED = 10;
     ///the number of levels when the speed must stop incrementing
     public static readonly int FIRST_LEVEL_FOR_MAX_SPEED = 50;
-
+    public GameObject explosion;
+    private GameObject player;
 
     [SerializeField] private bool mustMoveOnXAxis;
     [SerializeField] private bool mustMoveOnPositiveDirection;
     [SerializeField] private bool isMoving;
     [SerializeField] private float speed;
     [SerializeField] public Shop shop;
-    
+    private Rigidbody rb;
+
+    public List<string> missingParts = new List<string>();
 
     public bool MustMoveOnXAxis {
         get {
@@ -42,8 +47,9 @@ public class BlockBehavior : MonoBehaviour {
 
     void Start()
     {
-        
-        
+        rb = GetComponent<Rigidbody>();
+     
+
     }
     void Update() {
 
@@ -213,7 +219,7 @@ public class BlockBehavior : MonoBehaviour {
 
         //resize the current block
         var newPos = transform.localPosition;
-        var newSize = transform.localScale;
+        var newSize = transform.localScale ;
 
         if (mustMoveOnXAxis) {
             newPos.x = otherPos.x - 0.5f * shift;
@@ -316,5 +322,25 @@ public class BlockBehavior : MonoBehaviour {
         //return the speed with the percentage (linear calculation)
         return MIN_SPEED + levelPercentage * (MAX_SPEED - MIN_SPEED);
     }
+
+    public void destroyedParts(string g)
+    {
+        //		if (g.Contains ("Left") && g.Contains ("Engine")  && (!missingParts.Contains("ConnectLeft_Engine"))){
+        //			missingParts.Add ("ConnectLeft_Engine");
+        //		}
+        //		if (g.Contains ("Left") && g.Contains ("Cannon") && (!missingParts.Contains("ConnectLeft_Cannon"))){
+        //			missingParts.Add ("ConnectLeft_Cannon");
+        //		}
+        //
+        //		if (g.Contains ("Right") && g.Contains ("Cannon") && (!missingParts.Contains("ConnectRight_Cannon"))) {
+        //			missingParts.Add ("ConnectRight_Cannon");
+        //		}
+        //		if (g.Contains ("Right") && g.Contains ("Engine") && (!missingParts.Contains("ConnectRight_Engine"))) {
+        //			missingParts.Add ("ConnectRight_Engine");
+        //		}
+        //
+        missingParts.Add("T");
+    }
+
 
 }

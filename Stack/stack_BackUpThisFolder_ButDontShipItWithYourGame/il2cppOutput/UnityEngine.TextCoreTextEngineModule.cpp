@@ -11399,7 +11399,7 @@ IL_004a_1:
 				Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_15 = (L_12)->GetAt(static_cast<il2cpp_array_size_t>(L_14));
 				NullCheck(L_15);
 				bool L_16;
-				L_16 = VirtualFuncInvoker0< bool >::Invoke(8, L_15);
+				L_16 = VirtualFuncInvoker0< bool >::Invoke(10, L_15);
 				V_4 = (bool)((((int32_t)L_16) == ((int32_t)0))? 1 : 0);
 				bool L_17 = V_4;
 				if (!L_17)
@@ -11877,7 +11877,7 @@ IL_00ed:
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_43 = (L_40)->GetAt(static_cast<il2cpp_array_size_t>(L_42));
 		NullCheck(L_43);
 		bool L_44;
-		L_44 = VirtualFuncInvoker0< bool >::Invoke(8, L_43);
+		L_44 = VirtualFuncInvoker0< bool >::Invoke(10, L_43);
 		V_10 = (bool)((((int32_t)L_44) == ((int32_t)0))? 1 : 0);
 		bool L_45 = V_10;
 		if (!L_45)
@@ -13907,7 +13907,7 @@ IL_0044:
 		Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_20 = V_0;
 		NullCheck(L_20);
 		bool L_21;
-		L_21 = VirtualFuncInvoker0< bool >::Invoke(8, L_20);
+		L_21 = VirtualFuncInvoker0< bool >::Invoke(10, L_20);
 		V_6 = (bool)((((int32_t)L_21) == ((int32_t)0))? 1 : 0);
 		bool L_22 = V_6;
 		if (!L_22)

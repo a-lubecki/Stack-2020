@@ -8,59 +8,36 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MaterialBlock
-  m_Shader: {fileID: 210, guid: 0000000000000000f000000000000000, type: 0}
-  m_Parent: {fileID: 2100000, guid: 95be4df36eca6eb4b821dcab4acd4a1e, type: 2}
+  m_Shader: {fileID: 211, guid: 0000000000000000f000000000000000, type: 0}
+  m_Parent: {fileID: 2100000, guid: 0b1b6a2d22d96564f9037ae143ea84cf, type: 2}
   m_ModifiedSerializedProperties: 18
   m_ValidKeywords:
-  - _ALPHATEST_ON
+  - _ALPHABLEND_ON
   - _EMISSION
-  m_InvalidKeywords:
-  - _GLOSSYREFLECTIONS_OFF
-  - _SPECULARHIGHLIGHTS_OFF
+  - _FADING_ON
+  m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
+  m_CustomRenderQueue: 3000
   stringTagMap:
-    RenderType: TransparentCutout
+    RenderType: Transparent
   disabledShaderPasses:
   - GRABPASS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BumpMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _InnerRamp:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 714f4664f55c45c46b53f75dcd662d4d, type: 3}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
-    - _Ramp:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: ad3c6deb60874964aa592b7f1458ac54, type: 3}
+        m_Scale: {x: 0, y: 3}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats:
-    - _BumpAmt: 10
-    - _DstBlend: 0
-    - _Fresnel: 3
-    - _Glossiness: 0.526
-    - _GlossyReflections: 0
-    - _Metallic: 0.48
-    - _Mode: 1
-    - _SpecularHighlights: 0
-    - _ZWrite: 1
-    - _marchDistance: 3
-    - _numSteps: 4
+    m_Floats: []
     m_Colors:
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
-    - _Color: {r: 0.83561647, g: 1, b: 0, a: 1}
-    - _EmissionColor: {r: 0.2830189, g: 0.2830189, b: 0.2830189, a: 1}
-    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

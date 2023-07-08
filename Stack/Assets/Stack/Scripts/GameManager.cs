@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour {
     private int score = 0;
     private int matnum;
 
+    void Awake()
+    {
+        Start();
+    }
     void Start() {
         //PlayerPrefs.DeleteAll();
         highScore = PlayerPrefs.GetInt("HighScore", 0);

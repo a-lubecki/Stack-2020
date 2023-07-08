@@ -19,24 +19,24 @@ public class Collisions : MonoBehaviour{
 
         if (collision.gameObject.tag=="Blocks")
         {
-            Instantiate(explosion, transform.position, Quaternion.identity);
-
+            GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(explosionInstance, 2f);
 
         }
         if (collision.gameObject.tag=="Ground")
 		{
-            player.GetComponent<BlockBehavior>().destroyedParts(collision.gameObject.name);
-            Instantiate(explosion, transform.position, Quaternion.identity);
-            //Destroy(gameObject);
-            //Destroy(collision.gameObject);
+            
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
 
         }
 
         else
 		{
-            Instantiate(explosion, transform.position, Quaternion.identity);
-           // Destroy(gameObject);
-            //Destroy(collision.gameObject);
+            GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(explosionInstance, 2f); // Destruir la instancia de la explosión después de 2 segundos
+                                            // Destroy(gameObject);
+                                            //Destroy(collision.gameObject);
         }
 
 

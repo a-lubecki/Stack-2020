@@ -8,6 +8,7 @@ TagManager:
   - Base
   - Blocks
   - Ground
+  - Blade
   layers:
   - Default
   - TransparentFX

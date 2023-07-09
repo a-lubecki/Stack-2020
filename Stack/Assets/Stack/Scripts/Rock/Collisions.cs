@@ -20,10 +20,10 @@ public class Collisions : MonoBehaviour{
         if (collision.gameObject.tag=="Blocks")
         {
             GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
-            Destroy(explosionInstance, 2f);
+            Destroy(explosionInstance, 1f);
 
         }
-        if (collision.gameObject.tag=="Ground")
+        if (collision.gameObject.tag=="Blade")
 		{
             
             Destroy(gameObject);

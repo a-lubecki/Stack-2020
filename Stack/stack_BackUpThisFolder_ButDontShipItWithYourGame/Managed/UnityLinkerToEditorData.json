@@ -431,7 +431,9 @@
           },
           {
             "name": "SpriteRenderer",
-            "scenes": [],
+            "scenes": [
+              "Assets/Stack/Scenes/Stack.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -479,7 +481,9 @@
           },
           {
             "name": "TrailRenderer",
-            "scenes": [],
+            "scenes": [
+              "Assets/Stack/Scenes/Stack.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },
@@ -780,7 +784,9 @@
           },
           {
             "name": "SphereCollider",
-            "scenes": [],
+            "scenes": [
+              "Assets/Stack/Scenes/Stack.unity"
+            ],
             "dependencyType": 0,
             "icon": null
           },

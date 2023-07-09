@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private AudioBehavior audioBehavior;
     [SerializeField] private CoinSystem coinSystem;
     [SerializeField] public Shop shop;
+    [SerializeField] private BlockBehavior blockBehavior;
     private int perfectStackCount = 0;
     private int highScore = 0;
     private int coinCount = 0;
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void StartPlaying() {
-
+       // blockBehavior.BreakingPlatforms(true);
         isPlaying = true;
         perfectStackCount = 0;
         soundAchievement = false;
@@ -83,7 +84,8 @@ public class GameManager : MonoBehaviour {
     }
 
     private void StopPlaying() {
-
+        towerBehavior.RotateTower(90f, 75f,0f);
+        //blockBehavior.BreakingPlatforms();
         isPlaying = false;
         isGameOver = true;
 
@@ -97,6 +99,8 @@ public class GameManager : MonoBehaviour {
 
     private void ResetTower() {
 
+        towerBehavior.resetRotateTower();
+        //blockBehavior.BreakingPlatforms();
         isGameOver = false;
 
         towerBehavior.ResetTower();

@@ -53,7 +53,7 @@ public class Shop : MonoBehaviour
     public Material[] newMaterials;  //your list of new materials
 
     public Material[] rendMats;   //temp list, a copy of rend.Materials
-    private int matnum = 0 ;
+    private int matnum  ;
     private bool isPurchased = false; // Indica si la base ha sido comprada
     private int skinN;
 
@@ -125,7 +125,7 @@ public class Shop : MonoBehaviour
         int coinCount = PlayerPrefs.GetInt("Coins");
         print("Monedas actuales:"+coinCount);
         // Calcular el precio de la skin usando el valor de matnum
-        int priceSkin = skinN * 100;
+        int priceSkin = skinN * 1000;
         rendMats[0]= newMaterials[matnum2];
         if (priceSkin <= coinCount && rendMats2.purchasedSkins[skinN] == false)
         {
@@ -140,9 +140,10 @@ public class Shop : MonoBehaviour
             baseMeshRenderer.materials = rendMats;
             baseMeshRenderer2.materials = rendMats;
 
-            if (skinN >14)
-            {
+            if (skinN >15)
+            {   
                 skinN=0;
+                matnum2=0;
             }
             else
             {

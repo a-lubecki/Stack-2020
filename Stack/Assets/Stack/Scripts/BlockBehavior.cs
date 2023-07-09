@@ -27,8 +27,12 @@ public class BlockBehavior : MonoBehaviour {
     [SerializeField] private float speed;
     [SerializeField] public Shop shop;
     private Rigidbody rb;
+    private Rigidbody _rb;
+    private MeshRenderer _mr;
+    public static PlatformController platformController;
+    private Collider _collider;
+    [SerializeField] private float _moveSpeed = 1.5f;
 
-    public List<string> missingParts = new List<string>();
 
     public bool MustMoveOnXAxis {
         get {
@@ -44,11 +48,19 @@ public class BlockBehavior : MonoBehaviour {
             GetComponent<MeshRenderer>().material.color = value;
         }
     }
+    void Awake()
+    {
+         rb = GetComponent<Rigidbody>();
+        _mr = GetComponent<MeshRenderer>();
+         platformController = transform.parent.GetComponent<PlatformController>();
+       
+    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-     
+      
+        
 
     }
     void Update() {
@@ -96,6 +108,7 @@ public class BlockBehavior : MonoBehaviour {
     private void Move() {
 
         if (!isMoving) {
+            
             return;
         }
 
@@ -210,7 +223,7 @@ public class BlockBehavior : MonoBehaviour {
         if (otherBlock == null) {
             throw new ArgumentException();
         }
-
+        
         var otherPos = otherBlock.transform.localPosition;
         var otherSize = otherBlock.transform.localScale;
 
@@ -248,10 +261,11 @@ public class BlockBehavior : MonoBehaviour {
         goCutPart.transform.localPosition = newCutPos;
         goCutPart.transform.localScale = newCutSize;
 
+
     }
 
     public bool Grow(float additionalSize, Vector2 centerToTarget, Vector2 maxSize) {
-
+        
         if (additionalSize <= 0) {
             throw new ArgumentException("Additionnal size must be positive");
         }
@@ -323,24 +337,27 @@ public class BlockBehavior : MonoBehaviour {
         return MIN_SPEED + levelPercentage * (MAX_SPEED - MIN_SPEED);
     }
 
-    public void destroyedParts(string g)
+
+    public void BreakingPlatforms()
     {
-        //		if (g.Contains ("Left") && g.Contains ("Engine")  && (!missingParts.Contains("ConnectLeft_Engine"))){
-        //			missingParts.Add ("ConnectLeft_Engine");
-        //		}
-        //		if (g.Contains ("Left") && g.Contains ("Cannon") && (!missingParts.Contains("ConnectLeft_Cannon"))){
-        //			missingParts.Add ("ConnectLeft_Cannon");
-        //		}
-        //
-        //		if (g.Contains ("Right") && g.Contains ("Cannon") && (!missingParts.Contains("ConnectRight_Cannon"))) {
-        //			missingParts.Add ("ConnectRight_Cannon");
-        //		}
-        //		if (g.Contains ("Right") && g.Contains ("Engine") && (!missingParts.Contains("ConnectRight_Engine"))) {
-        //			missingParts.Add ("ConnectRight_Engine");
-        //		}
-        //
-        missingParts.Add("T");
+        rb.isKinematic = false; // Hacer que las partes de la plataforma sean vulnerables a la gravedad
+        _collider.enabled = false; // Hacer que las partes de la plataforma no interactúen entre sí para que el efecto de ruptura sea suave
+        Vector3 forcePoint = transform.parent.position; // Posición del centro de la plataforma
+        float parentXPosition = transform.parent.position.x; // Posición x del centro de la plataforma
+        float xPos = transform.position.x; // Posición x de la parte de la plataforma
+
+        Vector3 subDirection = (parentXPosition - xPos < 0) ? Vector3.right : Vector3.left; // Hacer que los objetos se muevan hacia la izquierda o hacia la derecha después de la ruptura
+        Vector3 direction = (Vector3.up * _moveSpeed + subDirection).normalized; // Calcular la dirección en la que se moverán las plataformas
+
+        float force = UnityEngine.Random.Range(20f, 35f);
+        float torque = UnityEngine.Random.Range(110f, 180f);
+
+        rb.AddForceAtPosition(direction * force, forcePoint, ForceMode.Impulse); // Aplicar la fuerza para el movimiento
+        rb.AddTorque(Vector3.left * torque); // Aplicar la torsión para la rotación de las plataformas
+        rb.velocity = Vector3.down; // Aplicar una velocidad hacia abajo (para la gravedad)
+      
     }
+
 
 
 }

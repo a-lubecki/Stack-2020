@@ -42,6 +42,8 @@ public class TowerBehavior : MonoBehaviour {
 
     public void ResetTower() {
 
+
+
         level = 0;
 
         //cast all generated blocks to pool
@@ -49,7 +51,7 @@ public class TowerBehavior : MonoBehaviour {
 
         previousBlockBehavior = null;
         topBlockBehavior = baseBlockBehavior;
-
+        
         baseBlockBehavior.Color = colorIncrementManager.NewColorFromOther(baseBlockBehavior.Color, UnityEngine.Random.Range(0.2f, 0.5f));
     }
 
@@ -75,6 +77,8 @@ public class TowerBehavior : MonoBehaviour {
         baseBlockBehavior.transform.Rotate(Vector3.up, 10f, Space.World);
         
 
+
+
     }
 
     public bool StackCurrentBlock() {
@@ -84,16 +88,18 @@ public class TowerBehavior : MonoBehaviour {
         }
 
         topBlockBehavior.StopMoving();
-
+        
         if (topBlockBehavior.IsStackedOutsidePreviousBlock(previousBlockBehavior)) {
             //not on the tower
             topBlockBehavior.SetAsKinematic(false);
+            
             return false;
         }
 
         if (topBlockBehavior.HasExactStackPosition(previousBlockBehavior, THRESHOLD_EXACT_BLOCK_STACKING)) {
 
             //perfect or almost perfect
+
             topBlockBehavior.MoveOverOtherBlock(previousBlockBehavior);
 
             hasPerfectStackPosition = true;
@@ -134,5 +140,27 @@ public class TowerBehavior : MonoBehaviour {
             new Vector2(baseSize.x, baseSize.z)
         );
     }
+
+    public void RotateTower(float rotationX, float rotationY, float rotationZ)
+    {
+        // Convertir los ángulos a rotaciones individuales
+        Quaternion xRotation = Quaternion.Euler(rotationX, 0f, 0f);
+        Quaternion yRotation = Quaternion.Euler(0f, rotationY, 0f);
+        Quaternion zRotation = Quaternion.Euler(0f, 0f, rotationZ);
+
+        // Aplicar las rotaciones en el orden deseado
+        transform.localRotation = xRotation * yRotation * zRotation;
+    }
+
+
+
+
+
+
+    public void resetRotateTower()
+    {
+        transform.rotation = Quaternion.identity;
+    }
+
 
 }

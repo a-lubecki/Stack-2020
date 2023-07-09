@@ -20,7 +20,7 @@ public class GameManager2 : MonoBehaviour {
     private int coinCount;
     private bool soundAchievement = false;
     private int score = 0;
-    public int matnum=0;
+    public int matnum;
     public int priceSkin;
     void Start() {
 
@@ -43,16 +43,19 @@ public class GameManager2 : MonoBehaviour {
             if (touchPosition.y <= Screen.height * 0.35f)
             {
 
-                priceSkin=matnum*100;
+                priceSkin=matnum*1000;
                 uiDisplayBehavior.DisplayPriceSkin(priceSkin);
                 matnum++;
 
-                // Reiniciar el contador si llega a 10
+                // Reiniciar el contador si llega a 15
                 if (matnum > 15)
                 {
-                    matnum = 0;
+                    print(matnum);
+                    matnum -=15;
+                   
                 }
-               // matnum = UnityEngine.Random.Range(0, 10);
+                // matnum = UnityEngine.Random.Range(0, 10);
+                print("runtime" + matnum);
                 shop.PurchaseBase(matnum);
             }
             uiDisplayBehavior.DisplayCoinSystem(coinCount);

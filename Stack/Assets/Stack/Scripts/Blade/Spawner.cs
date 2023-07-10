@@ -7,8 +7,10 @@ public class Spawner : MonoBehaviour
 
     public GameObject[] fruitPrefabs;
     [SerializeField] private LeanGameObjectPool poolBlocks;
+    [SerializeField] private LeanGameObjectPool poolMissiles;
     public GameObject bombPrefab;
     [SerializeField] private Transform trBlocks;
+    [SerializeField] private Transform trBlocks2;
     [Range(0f,1f)]
     public float bombChance = 0.05f;
 
@@ -41,13 +43,23 @@ public class Spawner : MonoBehaviour
 
     private IEnumerator Spawn()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
 
         while (enabled)
         {
-            GameObject prefab = poolBlocks.Spawn(Vector3.zero, Quaternion.identity, trBlocks, false); ;
+            GameObject prefab = poolBlocks.Spawn(Vector3.zero, Quaternion.identity, trBlocks, false);
 
-            if(Random.value < bombChance)
+            Vector3 spawnPosition = trBlocks2.position;
+
+            GameObject missileTemp = poolMissiles.Spawn(spawnPosition, Quaternion.identity, trBlocks2, false);
+
+            missileTemp.GetComponent<MissileBehaviour>().target = trBlocks;
+
+
+
+
+
+            if (Random.value < bombChance)
             {
                 prefab = bombPrefab;
             }
@@ -62,6 +74,7 @@ public class Spawner : MonoBehaviour
             GameObject fruit = Instantiate(prefab, position, rotation);
             // Destroy(fruit, maxLifetime);
             LeanPool.Despawn(prefab);
+          
             float force = Random.Range(minForce, maxForce);
             fruit.GetComponent<Rigidbody>().AddForce(fruit.transform.up * force, ForceMode.Impulse);
 

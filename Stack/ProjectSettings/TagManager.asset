@@ -9,6 +9,8 @@ TagManager:
   - Blocks
   - Ground
   - Blade
+  - missile
+  - Fruits
   layers:
   - Default
   - TransparentFX

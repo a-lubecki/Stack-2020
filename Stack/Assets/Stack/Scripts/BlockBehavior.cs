@@ -22,6 +22,7 @@ public class BlockBehavior : MonoBehaviour {
     private GameObject player;
     public GameObject whole;
     public GameObject sliced;
+    public Transform block;
     private Collider fruitCollider;
     private ParticleSystem juiceParticleEffect;
     [SerializeField] private bool mustMoveOnXAxis;
@@ -52,6 +53,8 @@ public class BlockBehavior : MonoBehaviour {
     }
     void Awake()
     {
+
+
          rb = GetComponent<Rigidbody>();
         _mr = GetComponent<MeshRenderer>();
         fruitCollider = GetComponent<Collider>();
@@ -398,9 +401,12 @@ public class BlockBehavior : MonoBehaviour {
         else
         {
             GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
-            Destroy(explosionInstance, 1f);
+            //LeanPool.Despawn(other);
+            //Destroy(explosionInstance, 1f);
         }
 
     }
+
+
 
 }

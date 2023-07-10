@@ -44,17 +44,18 @@ public class Fruit : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
-        {
-            Blade blade = other.GetComponent<Blade>();
-            Slice(blade.direction, blade.transform.position, blade.sliceForce);
-            LeanPool.Despawn(whole);
-        }
 
+        if (other.CompareTag("missile"))
+        {
+            GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
+            LeanPool.Despawn(other);
+            Destroy(explosionInstance, 1f);
+        }
 
         else
         {
             GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
+            LeanPool.Despawn(other);
             Destroy(explosionInstance, 1f);
         }
 

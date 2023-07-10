@@ -13,6 +13,8 @@ public class TowerBehavior : MonoBehaviour {
     [SerializeField] private BlockBehavior baseBlockBehavior;
     [SerializeField] private BlockBehavior baseBlockBehavior2;
     [SerializeField] private Transform trBlocks;
+    [SerializeField] private Transform base2;
+    [SerializeField] private LeanGameObjectPool poolMissiles;
     [SerializeField] private GameObject camaraRotation;
     [SerializeField] private LeanGameObjectPool poolBlocks;
 
@@ -57,6 +59,13 @@ public class TowerBehavior : MonoBehaviour {
 
     public void GenerateNextBlock() {
 
+
+        Vector3 spawnPosition = base2.position ;
+
+        GameObject missileTemp = poolMissiles.Spawn(spawnPosition, Quaternion.identity, base2, false);
+
+        missileTemp.GetComponent<MissileBehaviour>().target = base2;
+
         hasPerfectStackPosition = false;
 
         //replace the previous block by the current one
@@ -64,6 +73,7 @@ public class TowerBehavior : MonoBehaviour {
 
         //add a new block to the stack
         var goBlock = poolBlocks.Spawn(Vector3.zero, Quaternion.identity, trBlocks, false);
+       
         topBlockBehavior = goBlock.GetComponent<BlockBehavior>();
 
         //swap the moving axis of the new block and move

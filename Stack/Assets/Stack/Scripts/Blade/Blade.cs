@@ -28,23 +28,40 @@ public class Blade : MonoBehaviour
         StopSlicing();
     }
 
-    private void Update()
+    void Update()
     {
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
-            StartSlicing();
+            if (IsClickInUpperScreen())
+            {
+                StartSlicing();
+            }
         }
-
         else if (Input.GetMouseButtonUp(0))
         {
-            StopSlicing();
+            if (IsClickInUpperScreen())
+            {
+                StopSlicing();
+            }
         }
-
-        else if(slicing)
+        else if (slicing)
         {
-            ContinueSlicing();
+            if (IsClickInUpperScreen())
+            {
+                ContinueSlicing();
+            }
         }
     }
+
+    bool IsClickInUpperScreen()
+    {
+        // Obtener la posición del clic del mouse
+        Vector2 clickPosition = Input.mousePosition;
+
+        // Verificar si la posición del clic está en la parte superior de la pantalla
+        return clickPosition.y >= (Screen.height / 2);
+    }
+
 
     private void StartSlicing()
     {

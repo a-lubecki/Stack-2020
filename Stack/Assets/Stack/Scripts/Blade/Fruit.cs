@@ -1,14 +1,15 @@
 using UnityEngine;
-
+using Lean.Pool;
 public class Fruit : MonoBehaviour
 {
     public GameObject whole;
     public GameObject sliced;
-
+  
     private Rigidbody fruitRigidbody;
     private Collider fruitCollider;
     private ParticleSystem juiceParticleEffect;
     public GameObject explosion;
+    
     public int points = 1;
 
     private void Awake()
@@ -47,7 +48,10 @@ public class Fruit : MonoBehaviour
         {
             Blade blade = other.GetComponent<Blade>();
             Slice(blade.direction, blade.transform.position, blade.sliceForce);
+            LeanPool.Despawn(whole);
         }
+
+
         else
         {
             GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);

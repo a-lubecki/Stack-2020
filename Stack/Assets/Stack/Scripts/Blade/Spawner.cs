@@ -1,14 +1,14 @@
 using System.Collections;
 using UnityEngine;
-
+using Lean.Pool;
 public class Spawner : MonoBehaviour
 {
     private Collider spawnArea;
 
     public GameObject[] fruitPrefabs;
-
+    [SerializeField] private LeanGameObjectPool poolBlocks;
     public GameObject bombPrefab;
-
+    [SerializeField] private Transform trBlocks;
     [Range(0f,1f)]
     public float bombChance = 0.05f;
 
@@ -45,7 +45,7 @@ public class Spawner : MonoBehaviour
 
         while (enabled)
         {
-            GameObject prefab = fruitPrefabs[Random.Range(0, fruitPrefabs.Length)];
+            GameObject prefab = poolBlocks.Spawn(Vector3.zero, Quaternion.identity, trBlocks, false); ;
 
             if(Random.value < bombChance)
             {
@@ -60,8 +60,8 @@ public class Spawner : MonoBehaviour
             Quaternion rotation = Quaternion.Euler(0f, 0f, Random.Range(minAngle, maxAngle));  
 
             GameObject fruit = Instantiate(prefab, position, rotation);
-            Destroy(fruit, maxLifetime);
-
+            // Destroy(fruit, maxLifetime);
+            LeanPool.Despawn(prefab);
             float force = Random.Range(minForce, maxForce);
             fruit.GetComponent<Rigidbody>().AddForce(fruit.transform.up * force, ForceMode.Impulse);
 

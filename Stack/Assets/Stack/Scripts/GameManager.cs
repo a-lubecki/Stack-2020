@@ -45,27 +45,32 @@ public class GameManager : MonoBehaviour {
        
         shop.PurchaseBase(skinN);
         if (Input.GetMouseButtonDown(0))
-        {
-            
-            if (isPlaying)
+        {// Obtener la posición del toque o clic
+            Vector3 touchPosition1 = Input.mousePosition;
+            // Verificar si la posición del toque está en la parte inferior de la pantalla
+            if (touchPosition1.y <= Screen.height * 0.35f)
             {
-                TryStackCurrentBlock();
-            }
-            else if (isGameOver)
-            {
-                ResetTower();
-            }
-            else
-            {
-                // Obtener la posición del toque o clic
-                Vector3 touchPosition = Input.mousePosition;
-
-                // Verificar si la posición del toque está en la parte inferior de la pantalla
-                if (touchPosition.y <= Screen.height * 0.35f)
+                if (isPlaying)
                 {
-                    StartPlaying();
+                    TryStackCurrentBlock();
+                }
+                else if (isGameOver)
+                {
+                    ResetTower();
+                }
+                else
+                {
+                    // Obtener la posición del toque o clic
+                    Vector3 touchPosition = Input.mousePosition;
+
+                    // Verificar si la posición del toque está en la parte inferior de la pantalla
+                    if (touchPosition.y <= Screen.height * 0.35f)
+                    {
+                        StartPlaying();
+                    }
                 }
             }
+           
         }
 
     }
@@ -84,7 +89,7 @@ public class GameManager : MonoBehaviour {
     }
 
     private void StopPlaying() {
-        towerBehavior.RotateTower(90f, 75f,0f);
+       //towerBehavior.RotateTower(90f, 75f,0f);
         //blockBehavior.BreakingPlatforms();
         isPlaying = false;
         isGameOver = true;
@@ -99,7 +104,7 @@ public class GameManager : MonoBehaviour {
 
     private void ResetTower() {
 
-        towerBehavior.resetRotateTower();
+        // towerBehavior.resetRotateTower();
         //blockBehavior.BreakingPlatforms();
         isGameOver = false;
 

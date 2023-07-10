@@ -20,14 +20,16 @@ public class BlockBehavior : MonoBehaviour {
     public static readonly int FIRST_LEVEL_FOR_MAX_SPEED = 50;
     public GameObject explosion;
     private GameObject player;
-
+    public GameObject whole;
+    public GameObject sliced;
+    private Collider fruitCollider;
+    private ParticleSystem juiceParticleEffect;
     [SerializeField] private bool mustMoveOnXAxis;
     [SerializeField] private bool mustMoveOnPositiveDirection;
     [SerializeField] private bool isMoving;
     [SerializeField] private float speed;
     [SerializeField] public Shop shop;
     private Rigidbody rb;
-    private Rigidbody _rb;
     private MeshRenderer _mr;
     public static PlatformController platformController;
     private Collider _collider;
@@ -52,13 +54,15 @@ public class BlockBehavior : MonoBehaviour {
     {
          rb = GetComponent<Rigidbody>();
         _mr = GetComponent<MeshRenderer>();
-         platformController = transform.parent.GetComponent<PlatformController>();
+        fruitCollider = GetComponent<Collider>();
+        juiceParticleEffect = GetComponentInChildren<ParticleSystem>();
+        platformController = transform.parent.GetComponent<PlatformController>();
        
     }
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+       
       
         
 
@@ -358,6 +362,45 @@ public class BlockBehavior : MonoBehaviour {
       
     }
 
+    private void Slice(Vector3 direction, Vector3 position, float force)
+    {
+        //FindObjectOfType<GameManager>().IncreaseScore(points);
 
+        whole.SetActive(false);
+        sliced.SetActive(true);
+        fruitCollider.enabled = false;
+        juiceParticleEffect.Play();
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        sliced.transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+        Rigidbody[] slices = sliced.GetComponentsInChildren<Rigidbody>();
+
+        foreach (Rigidbody slice in slices)
+        {
+            slice.velocity = rb.velocity;
+            slice.AddForceAtPosition(direction * force, position, ForceMode.Impulse);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Blade blade = other.GetComponent<Blade>();
+            GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
+            //BreakingPlatforms();
+            LeanPool.Despawn(fruitCollider);
+            Destroy(explosionInstance, 1f);
+        }
+
+
+        else
+        {
+            GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(explosionInstance, 1f);
+        }
+
+    }
 
 }

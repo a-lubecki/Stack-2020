@@ -56,7 +56,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7940210452161226932}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -70,10 +70,10 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!75 &-9135456944759131953
 ConstantForce:
@@ -120,7 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2946bc3abe084b31aa9d5ce60486532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 1684178587505834, guid: 522be6537cd9670448fe8b6f5dbdc32a, type: 3}
+  explosion: {fileID: 4515054607814786672, guid: 522be6537cd9670448fe8b6f5dbdc32a,
+    type: 3}
+  whole: {fileID: 100000, guid: f36c148914c8e05498dad1ca7becaa2e, type: 3}
+  sliced: {fileID: 919132149155446097, guid: 77ace94dbf6ee844e9737e597283abf4, type: 3}
   mustMoveOnXAxis: 0
   mustMoveOnPositiveDirection: 0
   isMoving: 0

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4618653773429345333}
   - component: {fileID: 6766472684364262537}
   - component: {fileID: -6045540371739062685}
+  - component: {fileID: 828901557684716645}
   m_Layer: 0
   m_Name: Fruit_Base
   m_TagString: Untagged
@@ -78,8 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whole: {fileID: 7344573726506787308}
   sliced: {fileID: 8862824529103669725}
-  explosion: {fileID: 4515054607814786672, guid: 522be6537cd9670448fe8b6f5dbdc32a,
-    type: 3}
+  explosion: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
   points: 1
 --- !u!65 &-6045540371739062685
 BoxCollider:
@@ -102,6 +102,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &828901557684716645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6943804579839595550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47bac80a21a18b4b91b990df1cb4e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4713918616273234687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -244,6 +256,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: b2323ac14585e8d4cb6500ed8705f81a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e8a7db8bb30ba7846922a11cebbe1a2f, type: 2}
     - target: {fileID: -5754084199372789682, guid: b2323ac14585e8d4cb6500ed8705f81a,
         type: 3}
       propertyPath: m_Mesh

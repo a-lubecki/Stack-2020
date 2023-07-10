@@ -2767,7 +2767,7 @@ struct CameraState_t651BB85BE37498E7EB48448787624DC29D403FBD  : public RuntimeOb
 	float ___y;
 	float ___z;
 };
-struct U3CSpawnU3Ed__14_t943F16D668F8D2DA5EBE15DC04D7CC24E9B1DA5A  : public RuntimeObject
+struct U3CSpawnU3Ed__16_t74E8937BD13B44E2EF329402E85D94C0326A61D7  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -9722,13 +9722,16 @@ struct BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354  : public MonoBeh
 {
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___explosion;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___player;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___whole;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___sliced;
+	Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* ___fruitCollider;
+	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___juiceParticleEffect;
 	bool ___mustMoveOnXAxis;
 	bool ___mustMoveOnPositiveDirection;
 	bool ___isMoving;
 	float ___speed;
 	Shop_t8B1A82F6B39FDC982B3A8F8CC2226916FC9036E3* ___shop;
 	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ___rb;
-	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ____rb;
 	MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* ____mr;
 	Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* ____collider;
 	float ____moveSpeed;
@@ -10242,7 +10245,9 @@ struct Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7  : public MonoBehaviour
 {
 	Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* ___spawnArea;
 	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* ___fruitPrefabs;
+	LeanGameObjectPool_t58EE356E3205B4CD504C9F587FE8BB54BB6639AF* ___poolBlocks;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___bombPrefab;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___trBlocks;
 	float ___bombChance;
 	float ___minSpawnDelay;
 	float ___maxSpawnDelay;
@@ -14106,13 +14111,13 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3341[7] =
 	static_cast<int32_t>(offsetof(Fruit_tD2A93B9A01116EF11034410A2CCD5F0CFD28FEDB, ___whole)),static_cast<int32_t>(offsetof(Fruit_tD2A93B9A01116EF11034410A2CCD5F0CFD28FEDB, ___sliced)),static_cast<int32_t>(offsetof(Fruit_tD2A93B9A01116EF11034410A2CCD5F0CFD28FEDB, ___fruitRigidbody)),static_cast<int32_t>(offsetof(Fruit_tD2A93B9A01116EF11034410A2CCD5F0CFD28FEDB, ___fruitCollider)),static_cast<int32_t>(offsetof(Fruit_tD2A93B9A01116EF11034410A2CCD5F0CFD28FEDB, ___juiceParticleEffect)),static_cast<int32_t>(offsetof(Fruit_tD2A93B9A01116EF11034410A2CCD5F0CFD28FEDB, ___explosion)),static_cast<int32_t>(offsetof(Fruit_tD2A93B9A01116EF11034410A2CCD5F0CFD28FEDB, ___points)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3342[3] = 
 {
-	static_cast<int32_t>(offsetof(U3CSpawnU3Ed__14_t943F16D668F8D2DA5EBE15DC04D7CC24E9B1DA5A, ___U3CU3E1__state)),static_cast<int32_t>(offsetof(U3CSpawnU3Ed__14_t943F16D668F8D2DA5EBE15DC04D7CC24E9B1DA5A, ___U3CU3E2__current)),static_cast<int32_t>(offsetof(U3CSpawnU3Ed__14_t943F16D668F8D2DA5EBE15DC04D7CC24E9B1DA5A, ___U3CU3E4__this)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3343[11] = 
+	static_cast<int32_t>(offsetof(U3CSpawnU3Ed__16_t74E8937BD13B44E2EF329402E85D94C0326A61D7, ___U3CU3E1__state)),static_cast<int32_t>(offsetof(U3CSpawnU3Ed__16_t74E8937BD13B44E2EF329402E85D94C0326A61D7, ___U3CU3E2__current)),static_cast<int32_t>(offsetof(U3CSpawnU3Ed__16_t74E8937BD13B44E2EF329402E85D94C0326A61D7, ___U3CU3E4__this)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3343[13] = 
 {
-	static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___spawnArea)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___fruitPrefabs)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___bombPrefab)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___bombChance)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___minSpawnDelay)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___maxSpawnDelay)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___minAngle)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___maxAngle)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___minForce)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___maxForce)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___maxLifetime)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3344[18] = 
+	static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___spawnArea)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___fruitPrefabs)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___poolBlocks)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___bombPrefab)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___trBlocks)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___bombChance)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___minSpawnDelay)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___maxSpawnDelay)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___minAngle)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___maxAngle)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___minForce)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___maxForce)),static_cast<int32_t>(offsetof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7, ___maxLifetime)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3344[21] = 
 {
-	static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354_StaticFields, ___MAX_AMPLITUDE)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354_StaticFields, ___MIN_SPEED)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354_StaticFields, ___MAX_SPEED)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354_StaticFields, ___LAST_LEVEL_FOR_MIN_SPEED)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354_StaticFields, ___FIRST_LEVEL_FOR_MAX_SPEED)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___explosion)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___player)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___mustMoveOnXAxis)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___mustMoveOnPositiveDirection)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___isMoving)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___speed)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___shop)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___rb)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ____rb)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ____mr)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354_StaticFields, ___platformController)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ____collider)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ____moveSpeed)),};
+	static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354_StaticFields, ___MAX_AMPLITUDE)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354_StaticFields, ___MIN_SPEED)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354_StaticFields, ___MAX_SPEED)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354_StaticFields, ___LAST_LEVEL_FOR_MIN_SPEED)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354_StaticFields, ___FIRST_LEVEL_FOR_MAX_SPEED)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___explosion)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___player)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___whole)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___sliced)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___fruitCollider)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___juiceParticleEffect)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___mustMoveOnXAxis)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___mustMoveOnPositiveDirection)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___isMoving)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___speed)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___shop)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ___rb)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ____mr)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354_StaticFields, ___platformController)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ____collider)),static_cast<int32_t>(offsetof(BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354, ____moveSpeed)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable3345[3] = 
 {
 	static_cast<int32_t>(offsetof(CoinSystem_t395C61906FB3167B363B7553CF25CC3E07F805B7, ___coinText)),static_cast<int32_t>(offsetof(CoinSystem_t395C61906FB3167B363B7553CF25CC3E07F805B7, ___coinImage)),static_cast<int32_t>(offsetof(CoinSystem_t395C61906FB3167B363B7553CF25CC3E07F805B7, ___coinCount)),};

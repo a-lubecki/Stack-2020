@@ -8749,7 +8749,7 @@ struct TypeInfo_t62AF95443A1196CCF884DAFFC4E6785CC02AFC77  : public RuntimeObjec
 	Hashtable_tEFC3B6496E6747787D8BB761B51F2AE3A8CFFE2D* ___Attributes;
 	Hashtable_tEFC3B6496E6747787D8BB761B51F2AE3A8CFFE2D* ___Elements;
 };
-struct U3CSpawnU3Ed__14_t943F16D668F8D2DA5EBE15DC04D7CC24E9B1DA5A  : public RuntimeObject
+struct U3CSpawnU3Ed__16_t74E8937BD13B44E2EF329402E85D94C0326A61D7  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -32364,13 +32364,16 @@ struct BlockBehavior_t2F730B7FC4D16E2C6CED132BD493F8600B455354  : public MonoBeh
 {
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___explosion;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___player;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___whole;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___sliced;
+	Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* ___fruitCollider;
+	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___juiceParticleEffect;
 	bool ___mustMoveOnXAxis;
 	bool ___mustMoveOnPositiveDirection;
 	bool ___isMoving;
 	float ___speed;
 	Shop_t8B1A82F6B39FDC982B3A8F8CC2226916FC9036E3* ___shop;
 	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ___rb;
-	Rigidbody_t268697F5A994213ED97393309870968BC1C7393C* ____rb;
 	MeshRenderer_t4B7747212F0B88244BB7790C61AE124BFC15BAAE* ____mr;
 	Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* ____collider;
 	float ____moveSpeed;
@@ -32996,7 +32999,9 @@ struct Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7  : public MonoBehaviour
 {
 	Collider_t1CC3163924FCD6C4CC2E816373A929C1E3D55E76* ___spawnArea;
 	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* ___fruitPrefabs;
+	LeanGameObjectPool_t58EE356E3205B4CD504C9F587FE8BB54BB6639AF* ___poolBlocks;
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___bombPrefab;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___trBlocks;
 	float ___bombChance;
 	float ___minSpawnDelay;
 	float ___maxSpawnDelay;
@@ -46014,7 +46019,7 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize3340 = { sizeof(Blade_t2175C
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3341;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize3341 = { sizeof(Fruit_tD2A93B9A01116EF11034410A2CCD5F0CFD28FEDB), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3342;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize3342 = { sizeof(U3CSpawnU3Ed__14_t943F16D668F8D2DA5EBE15DC04D7CC24E9B1DA5A), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize3342 = { sizeof(U3CSpawnU3Ed__16_t74E8937BD13B44E2EF329402E85D94C0326A61D7), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3343;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize3343 = { sizeof(Spawner_t387EDFC7BADAEFFD3305FD31D1E8DDE8998FCDD7), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3344;

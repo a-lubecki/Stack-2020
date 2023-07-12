@@ -11,6 +11,7 @@ public class AudioBehavior : MonoBehaviour {
     [SerializeField] private AudioClip clipGuitarXylophone;
     [SerializeField] private AudioClip clipAchievement;
     [SerializeField] private AudioClip clipCoinAdd;
+    [SerializeField] private AudioClip clipMissileImpact;
 
     private AudioSource audioSourceDefault;
     private AudioSource audioSourceBadStack;
@@ -86,5 +87,10 @@ public class AudioBehavior : MonoBehaviour {
     {
 
         audioSourceDefault.PlayOneShot(clipCoinAdd);
+    }
+    public void PlayMissileImpact()
+    {
+
+        audioSourceDefault.PlayOneShot(clipMissileImpact);
     }
 }

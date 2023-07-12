@@ -11,22 +11,22 @@ public class Collisions : MonoBehaviour{
 	private GameObject player;
 
 	void Start () {
-		player = GameObject.Find ("Blocks");
+		player = GameObject.Find ("Player");
 
 	}
 
 	void OnCollisionEnter(Collision collision){
 
-        if (collision.gameObject.tag=="Blocks")
-        {
-            GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
-            Destroy(explosionInstance, 1f);
+        //if (collision.gameObject.tag=="Blocks")
+        //{
+        //    GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
+        //    Destroy(explosionInstance, 1f);
 
-        }
-        if (collision.gameObject.tag=="Blade")
+        //}
+        if (collision.gameObject.tag=="Fruits")
 		{
             
-            Destroy(gameObject);
+            //Destroy(gameObject);
             Destroy(collision.gameObject);
 
         }
@@ -34,6 +34,7 @@ public class Collisions : MonoBehaviour{
         else
 		{
             GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
+           
             Destroy(explosionInstance, 2f); // Destruir la instancia de la explosión después de 2 segundos
                                             // Destroy(gameObject);
                                             //Destroy(collision.gameObject);

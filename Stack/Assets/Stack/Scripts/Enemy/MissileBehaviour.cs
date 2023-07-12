@@ -7,9 +7,11 @@ public class MissileBehaviour : MonoBehaviour
 
     Rigidbody rb;
     public Transform target;
+    public Transform pointSpawnPowerUp;
     public GameObject dust;
     public GameObject explosionEffect;
     public float speed = 9f, rotationSpeed = 120f, dustWait = .05f;
+    [SerializeField] private LeanGameObjectPool poolEnemy;
 
     // Use this for initialization
     void Start()
@@ -43,14 +45,21 @@ public class MissileBehaviour : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
         string tag = other.gameObject.tag;
         if (tag.Equals("Fruits"))
         {
             blowUpPlane(other.gameObject.transform);
+
+
         }
         if (tag.Equals("missile"))
         {
             blowUpSelf();
+        }
+        else
+        {
+
         }
     }
 
@@ -59,17 +68,17 @@ public class MissileBehaviour : MonoBehaviour
     void blowUpPlane(Transform plane)
     {
         blowUpSelf();
-        plane.parent.GetComponent<BlockBehavior>();
-        
-
+        //plane.parent.GetComponent<BlockBehavior>();
     }
 
     void blowUpSelf()
     {
         GameObject tempExplosion = Instantiate(explosionEffect, transform.position, dust.transform.rotation);
-        //Destroy(tempExplosion, 1.2f);
+        
+        poolEnemy.Spawn(Vector3.zero, Quaternion.identity, pointSpawnPowerUp, false); //Create object when colider with enemy
         LeanPool.Despawn(gameObject);
         LeanPool.Despawn(tempExplosion);
+        Destroy(tempExplosion, 1.2f);
     }
 
 }

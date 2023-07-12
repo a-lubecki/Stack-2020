@@ -7,11 +7,11 @@ public class Spawner : MonoBehaviour
 
     public GameObject[] fruitPrefabs;
     [SerializeField] private LeanGameObjectPool poolBlocks;
-    [SerializeField] private LeanGameObjectPool poolMissiles;
+    [SerializeField] private LeanGameObjectPool poolEnemy;
     public GameObject bombPrefab;
     [SerializeField] private Transform trBlocks;
-    [SerializeField] private Transform trBlocks2;
-    [Range(0f,1f)]
+
+    [Range(0f, 1f)]
     public float bombChance = 0.05f;
 
     public float minSpawnDelay = 0.25f;
@@ -33,7 +33,7 @@ public class Spawner : MonoBehaviour
 
     private void OnEnable()
     {
-       StartCoroutine(Spawn());
+        StartCoroutine(Spawn());
     }
 
     private void OnDisable()
@@ -47,34 +47,21 @@ public class Spawner : MonoBehaviour
 
         while (enabled)
         {
-            GameObject prefab = poolBlocks.Spawn(Vector3.zero, Quaternion.identity, trBlocks, false);
-
-            Vector3 spawnPosition = trBlocks2.position;
-
-            GameObject missileTemp = poolMissiles.Spawn(spawnPosition, Quaternion.identity, trBlocks2, false);
-
-            missileTemp.GetComponent<MissileBehaviour>().target = trBlocks;
+            //GameObject prefab = poolBlocks.Spawn(Vector3.zero, Quaternion.identity, trBlocks, false);
 
 
-
-
-
-            if (Random.value < bombChance)
-            {
-                prefab = bombPrefab;
-            }
 
             Vector3 position = new Vector3();
             position.x = Random.Range(spawnArea.bounds.min.x, spawnArea.bounds.max.x);
             position.y = Random.Range(spawnArea.bounds.min.y, spawnArea.bounds.max.y);
             position.z = Random.Range(spawnArea.bounds.min.z, spawnArea.bounds.max.z);
 
-            Quaternion rotation = Quaternion.Euler(0f, 0f, Random.Range(minAngle, maxAngle));  
+            Quaternion rotation = Quaternion.Euler(0f, 0f, Random.Range(minAngle, maxAngle));
 
-            GameObject fruit = Instantiate(prefab, position, rotation);
-            // Destroy(fruit, maxLifetime);
-            LeanPool.Despawn(prefab);
-          
+            GameObject fruit = poolBlocks.Spawn(Vector3.zero, Quaternion.identity, trBlocks, false);
+            Destroy(fruit, maxLifetime);
+            //LeanPool.Despawn(fruit);
+
             float force = Random.Range(minForce, maxForce);
             fruit.GetComponent<Rigidbody>().AddForce(fruit.transform.up * force, ForceMode.Impulse);
 

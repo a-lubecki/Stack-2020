@@ -9,7 +9,7 @@ public class BlockBehavior : MonoBehaviour {
 
 
     ///the max position of the moving animation
-    public static readonly float MAX_AMPLITUDE = 6;
+    public static readonly float MAX_AMPLITUDE = 9;
 
     public static readonly float MIN_SPEED = 8;
     public static readonly float MAX_SPEED = 20;
@@ -402,7 +402,7 @@ public class BlockBehavior : MonoBehaviour {
         {
             GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
             //LeanPool.Despawn(other);
-            //Destroy(explosionInstance, 1f);
+            Destroy(explosionInstance, 1f);
         }
 
     }

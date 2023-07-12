@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Lean.Pool;
 public class GameManager : MonoBehaviour {
 
 
@@ -70,6 +71,8 @@ public class GameManager : MonoBehaviour {
                     }
                 }
             }
+
+
            
         }
 
@@ -115,6 +118,7 @@ public class GameManager : MonoBehaviour {
         uiDisplayBehavior.DisplayTitle();
 
         audioBehavior.PlaySoundRetry();
+      
     }
 
     private void GenerateNextBlock() {

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 828901557684716645}
   m_Layer: 0
   m_Name: Fruit_Base
-  m_TagString: Fruits
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63,7 +63,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &6766472684364262537
 MonoBehaviour:
@@ -77,9 +77,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31143f23e124f34fa44ba11d193f8c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whole: {fileID: 7344573726506787308}
-  sliced: {fileID: 3744133877081091469, guid: a2a060732547fe64581bb0cb3c2bdf1d, type: 3}
-  explosion: {fileID: 1121192042590650, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
+  whole: {fileID: 100000, guid: f36c148914c8e05498dad1ca7becaa2e, type: 3}
+  sliced: {fileID: 7940210452161226932, guid: 46583feca5a6f40a289bf22d26adcb16, type: 3}
+  poolEnemy: {fileID: 4830698558402646553, guid: 877f2f21d33dce84497eb2f420e889cf,
+    type: 3}
+  explosion: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473,
+    type: 3}
+  trBlocks: {fileID: 5064404603605631875, guid: 30ffc1589a269b043875e057e3d9403c,
+    type: 3}
   points: 1
 --- !u!65 &-6045540371739062685
 BoxCollider:
@@ -96,7 +101,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -276,12 +281,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2323ac14585e8d4cb6500ed8705f81a, type: 3}
---- !u!1 &7344573726506787308 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b2323ac14585e8d4cb6500ed8705f81a,
-    type: 3}
-  m_PrefabInstance: {fileID: 7578506172149767357}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7973335379626097494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b2323ac14585e8d4cb6500ed8705f81a,

@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  pointSpawnPowerUp: {fileID: 6364107098897589020, guid: 877f2f21d33dce84497eb2f420e889cf,
+  pointSpawnPowerUp: {fileID: 1126206209794189092, guid: a89301c68ff840f49b1bcc472bb705ff,
     type: 3}
   dust: {fileID: 1824851670626472, guid: 9f11ea896eb5c3547a8f9004e8cbed37, type: 3}
   explosionEffect: {fileID: 2432943730994739413, guid: 522be6537cd9670448fe8b6f5dbdc32a,
@@ -58,7 +58,7 @@ MonoBehaviour:
   speed: 10
   rotationSpeed: 120
   dustWait: 0.05
-  poolEnemy: {fileID: 4830698558402646553, guid: 877f2f21d33dce84497eb2f420e889cf,
+  _powerUp: {fileID: 6943804579839595550, guid: 555f9de0563307a48958bcd910e3993d,
     type: 3}
 --- !u!54 &2829303180766215941
 Rigidbody:

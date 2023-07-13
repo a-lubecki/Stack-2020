@@ -11,7 +11,7 @@ public class MissileBehaviour : MonoBehaviour
     public GameObject dust;
     public GameObject explosionEffect;
     public float speed = 9f, rotationSpeed = 120f, dustWait = .05f;
-    [SerializeField] private LeanGameObjectPool poolEnemy;
+    public GameObject _powerUp;
 
     // Use this for initialization
     void Start()
@@ -47,10 +47,10 @@ public class MissileBehaviour : MonoBehaviour
     {
 
         string tag = other.gameObject.tag;
-        if (tag.Equals("Fruits"))
+        if (tag.Equals("Enemy"))
         {
             blowUpPlane(other.gameObject.transform);
-
+            LeanPool.Despawn(gameObject);
 
         }
         if (tag.Equals("missile"))
@@ -59,7 +59,7 @@ public class MissileBehaviour : MonoBehaviour
         }
         else
         {
-
+                
         }
     }
 
@@ -75,9 +75,9 @@ public class MissileBehaviour : MonoBehaviour
     {
         GameObject tempExplosion = Instantiate(explosionEffect, transform.position, dust.transform.rotation);
         
-        poolEnemy.Spawn(Vector3.zero, Quaternion.identity, pointSpawnPowerUp, false); //Create object when colider with enemy
-        LeanPool.Despawn(gameObject);
-        LeanPool.Despawn(tempExplosion);
+        LeanPool.Spawn(_powerUp, pointSpawnPowerUp.position, Quaternion.identity); //Create object when colider with enemy
+        //LeanPool.Despawn(gameObject);
+        //LeanPool.Despawn(tempExplosion);
         Destroy(tempExplosion, 1.2f);
     }
 

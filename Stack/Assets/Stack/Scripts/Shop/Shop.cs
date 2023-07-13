@@ -80,7 +80,7 @@ public class Shop : MonoBehaviour
             if (PlayerPrefs.GetInt(key)== 1)
             {
 
-                print("Skin comprada almacenado");
+                //print("Skin comprada almacenado");
                 PlayerPrefs.SetInt("Skin", skinN);
                 PlayerPrefs.Save();
                 //    for (int i = 0; i < rendmats2.purchasedskins.length; i++)
@@ -111,7 +111,7 @@ public class Shop : MonoBehaviour
 
             else
             {
-                print("Skin no comprada");
+               // print("Skin no comprada");
             }
 
         }
@@ -123,18 +123,18 @@ public class Shop : MonoBehaviour
     {
         // Obtener la cantidad de monedas guardadas en memoria
         int coinCount = PlayerPrefs.GetInt("Coins");
-        print("Monedas actuales:"+coinCount);
+       // print("Monedas actuales:"+coinCount);
         // Calcular el precio de la skin usando el valor de matnum
         int priceSkin = skinN * 1000;
         rendMats[0]= newMaterials[matnum2];
         if (priceSkin <= coinCount && rendMats2.purchasedSkins[skinN] == false)
         {
-            print("no. skin: "+skinN);
+            //print("no. skin: "+skinN);
             
             rendMats2.purchasedSkins[skinN] = true;
             // Guardar la nueva cantidad de monedas en memoria
             PlayerPrefs.SetInt("Coins", coinCount);
-            print("Comprada skin:"+matnum2);
+            //print("Comprada skin:"+matnum2);
             skinPurchase();
             // Actualizar la interfaz de usuario para mostrar la nueva cantidad de monedas
             baseMeshRenderer.materials = rendMats;
@@ -157,7 +157,7 @@ public class Shop : MonoBehaviour
 
         else
         {
-            print("No alcanza:");
+           // print("No alcanza:");
             // Mostrar un mensaje o realizar alguna acción si no se tienen suficientes monedas para comprar la skin
         }
 

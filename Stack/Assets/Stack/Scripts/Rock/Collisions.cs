@@ -33,9 +33,9 @@ public class Collisions : MonoBehaviour{
 
         else
 		{
-            GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
+            //GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
            
-            Destroy(explosionInstance, 2f); // Destruir la instancia de la explosión después de 2 segundos
+            //Destroy(explosionInstance, 2f); // Destruir la instancia de la explosión después de 2 segundos
                                             // Destroy(gameObject);
                                             //Destroy(collision.gameObject);
         }

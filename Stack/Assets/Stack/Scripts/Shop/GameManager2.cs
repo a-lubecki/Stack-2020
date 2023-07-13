@@ -50,12 +50,12 @@ public class GameManager2 : MonoBehaviour {
                 // Reiniciar el contador si llega a 15
                 if (matnum > 15)
                 {
-                    print(matnum);
+                    //print(matnum);
                     matnum -=15;
                    
                 }
                 // matnum = UnityEngine.Random.Range(0, 10);
-                print("runtime" + matnum);
+                //print("runtime" + matnum);
                 shop.PurchaseBase(matnum);
             }
             uiDisplayBehavior.DisplayCoinSystem(coinCount);

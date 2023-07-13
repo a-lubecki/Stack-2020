@@ -24,16 +24,22 @@ public class GameManager : MonoBehaviour {
     private bool soundAchievement = false;
     private int score = 0;
     private int matnum;
+    public GameObject _enemy;
+    private bool enemyAwake;
+    private int aux=0;
+    [SerializeField] private Transform enemyInit;
 
     void Awake()
     {
         Start();
     }
     void Start() {
+        enemyAwake=false;
         //PlayerPrefs.DeleteAll();
         highScore = PlayerPrefs.GetInt("HighScore", 0);
         coinCount = PlayerPrefs.GetInt("Coins", 0);
         skinN = PlayerPrefs.GetInt("Skin", 0);
+        enemyInit.position = new Vector3(0f, 0f, 0f);
         // Mostrar el puntaje más alto en la interfaz de usuario
         uiDisplayBehavior.DisplayCoinSystem(coinCount);
         uiDisplayBehavior.DisplayHighScore(highScore);
@@ -68,6 +74,7 @@ public class GameManager : MonoBehaviour {
                     if (touchPosition.y <= Screen.height * 0.35f)
                     {
                         StartPlaying();
+                        
                     }
                 }
             }
@@ -85,9 +92,10 @@ public class GameManager : MonoBehaviour {
         soundAchievement = false;
         uiDisplayBehavior.DisplayTitle();
         // uiDisplayBehavior.HideMessage();
-
+        
         GenerateNextBlock();
-
+       
+        //enemy.GenerateNewFruit();
         audioBehavior.PlaySoundStart();
     }
 
@@ -97,12 +105,12 @@ public class GameManager : MonoBehaviour {
         isPlaying = false;
         isGameOver = true;
 
-
+        enemyInit.position = new Vector3(0f, 0f, 0f);
         uiDisplayBehavior.DisplayRetry();
         ScoreManager.SaveHighScore(towerBehavior.level);
         Handheld.Vibrate();
         score=0;
-
+        
     }
 
     private void ResetTower() {
@@ -116,13 +124,25 @@ public class GameManager : MonoBehaviour {
         mainCameraBehavior.ResetPosition();
 
         uiDisplayBehavior.DisplayTitle();
-
+        enemyInit.position = new Vector3(0f, 0f, 0f);
         audioBehavior.PlaySoundRetry();
-      
+        //enemy.ResetPosition();
+        
+
+
     }
 
     private void GenerateNextBlock() {
 
+        if (aux<9)
+        {
+            generateEnemy();
+            aux++;
+        }
+        else
+        {
+            aux=0;
+        }
         towerBehavior.GenerateNextBlock();
 
         //make the camera follow the new block
@@ -197,5 +217,11 @@ public class GameManager : MonoBehaviour {
         
     }
 
-
+    private void generateEnemy()
+    {
+        LeanPool.Spawn(_enemy, enemyInit.position, Quaternion.identity);
+        enemyInit.position += new Vector3(0f, 15f, 0f);
+        
+        
+    }
 }

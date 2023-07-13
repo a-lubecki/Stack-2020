@@ -10,7 +10,7 @@ public class GroundBehavior : MonoBehaviour {
 
         if (other.GetComponent<BlockBehavior>() == null) {
             //not a block
-            return;
+            LeanPool.Despawn(other);
         }
 
         //cast fallen block to pool

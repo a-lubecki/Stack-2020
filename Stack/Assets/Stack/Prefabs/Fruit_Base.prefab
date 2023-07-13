@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 828901557684716645}
   m_Layer: 0
   m_Name: Fruit_Base
-  m_TagString: Enemy
+  m_TagString: Fruits
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,11 +79,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whole: {fileID: 100000, guid: f36c148914c8e05498dad1ca7becaa2e, type: 3}
   sliced: {fileID: 7940210452161226932, guid: 46583feca5a6f40a289bf22d26adcb16, type: 3}
-  poolEnemy: {fileID: 4830698558402646553, guid: 877f2f21d33dce84497eb2f420e889cf,
+  poolPowerUp: {fileID: 7715558629755557954, guid: ec9ca722b29fd4e4f95dd24268e7fdf8,
+    type: 3}
+  poolEnemy: {fileID: 3369135228678935054, guid: 877f2f21d33dce84497eb2f420e889cf,
     type: 3}
   explosion: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473,
     type: 3}
-  trBlocks: {fileID: 5064404603605631875, guid: 30ffc1589a269b043875e057e3d9403c,
+  trBlocks: {fileID: 1324411496337474328, guid: 465e8d1534265134cb45945015cc4fdc,
+    type: 3}
+  enemyInit: {fileID: 470729948600088964, guid: 877f2f21d33dce84497eb2f420e889cf,
     type: 3}
   points: 1
 --- !u!65 &-6045540371739062685

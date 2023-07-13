@@ -22,6 +22,7 @@ public class BlockBehavior : MonoBehaviour {
     private GameObject player;
     public GameObject whole;
     public GameObject sliced;
+    public Enemy enemy;
     public Transform block;
     private Collider fruitCollider;
     private ParticleSystem juiceParticleEffect;
@@ -388,13 +389,13 @@ public class BlockBehavior : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Enemy"))
         {
-            Blade blade = other.GetComponent<Blade>();
-            GameObject explosionInstance = Instantiate(explosion, transform.position, Quaternion.identity);
+
             //BreakingPlatforms();
-            LeanPool.Despawn(fruitCollider);
-            Destroy(explosionInstance, 1f);
+            //enemy.GenerateNewFruit();
+            LeanPool.Despawn(other);
+            
         }
 
 

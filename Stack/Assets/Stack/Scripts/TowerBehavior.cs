@@ -17,6 +17,7 @@ public class TowerBehavior : MonoBehaviour {
     [SerializeField] private Transform base3;
     [SerializeField] private LeanGameObjectPool poolMissiles;
     [SerializeField] private GameObject camaraRotation;
+    public GameObject _missile;
     [SerializeField] private LeanGameObjectPool poolBlocks;
 
     private BlockBehavior previousBlockBehavior;
@@ -51,7 +52,8 @@ public class TowerBehavior : MonoBehaviour {
 
         //cast all generated blocks to pool
         poolBlocks.DespawnAll();
-
+        poolMissiles.DespawnAll();
+        LeanPool.DespawnAll();
         previousBlockBehavior = null;
         topBlockBehavior = baseBlockBehavior;
         
@@ -61,9 +63,9 @@ public class TowerBehavior : MonoBehaviour {
     public void GenerateNextBlock() {
 
 
-        Vector3 spawnPosition = base3.position ;
+        Vector3 spawnPosition = base3.position;
 
-        GameObject missileTemp = poolMissiles.Spawn(spawnPosition, Quaternion.identity, base2, false);
+        GameObject missileTemp = LeanPool.Spawn(_missile, base3.position, Quaternion.identity);
 
         missileTemp.GetComponent<MissileBehaviour>().target = base3;
 

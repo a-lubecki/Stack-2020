@@ -6,14 +6,15 @@ public class Fruit : MonoBehaviour
 {
     public GameObject whole;
     public GameObject sliced;
-    [SerializeField] private LeanGameObjectPool poolEnemy;
+    [SerializeField] private LeanGameObjectPool poolPowerUp;
     private Rigidbody fruitRigidbody;
     private Collider fruitCollider;
     private ParticleSystem juiceParticleEffect;
     public GameObject explosion;
-     [SerializeField] private Transform trBlocks;
+    [SerializeField] private Transform trBlocks;
+    [SerializeField] private Transform enemyInit;
     public int points = 1;
-
+    private GameObject newFruit;
     private void Awake()
     {
         fruitRigidbody = GetComponent<Rigidbody>();
@@ -67,13 +68,16 @@ public class Fruit : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             GameObject explosionInstance2 = Instantiate(explosion, transform.position, Quaternion.identity);
-            //LeanPool.Despawn(whole);
+            //poolEnemy.Despawn(whole);
             Destroy(explosionInstance2, 1f);
         }
         if (other.CompareTag("Blocks"))
         {
+            
             GameObject explosionInstance2 = Instantiate(explosion, transform.position, Quaternion.identity);
-            LeanPool.Despawn(whole);
+
+            
+            LeanPool.Despawn(gameObject);
             Destroy(explosionInstance2, 1f);
         }
         else
@@ -83,13 +87,7 @@ public class Fruit : MonoBehaviour
             Destroy(explosionInstance3, 1f);
         }
 
-        // Verificar si el objeto Fruit actual está inactivo
-        if (!gameObject.activeSelf)
-        {
-            print("imprimiendo enemi");
-            
-        }
     }
- 
+
 
 }

@@ -785,7 +785,8 @@
           {
             "name": "SphereCollider",
             "scenes": [
-              "Assets/Stack/Scenes/Stack.unity"
+              "Assets/Stack/Scenes/Stack.unity",
+              "Assets/Stack/Scenes/Store.unity"
             ],
             "dependencyType": 0,
             "icon": null
